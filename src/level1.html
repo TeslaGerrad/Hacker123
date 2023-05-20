@@ -1,0 +1,1079 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<title>123.0.0.1</title>
+</head>
+<style type="text/css">
+    body{
+        background-image: url(img/vb.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        
+    }
+	
+
+
+.loader {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader > img {
+    width:1250px;
+    height: 800px;
+}
+
+.loader.hidden {
+    animation: fadeOut 10s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+    100% {
+        opacity: 50;
+        visibility: hidden;
+    }
+}
+.dragzone, .dropzone{
+    height: 70px;
+    width: 70px;
+    margin-top: 7px;
+    
+    
+}
+.c2, .c3, .c4, .c5{
+
+    margin-left: 30px;
+}
+.wina{
+    display:none;
+    
+    
+
+}
+.win{
+    border-radius: 10px;
+    width: 97%;
+    height: 97%;
+    background: rgba(55,55,55,.70);
+    position: absolute;
+    margin-top: 10px;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.winc{
+    width: 990px;
+    height:550px;
+   
+
+}
+.close, .close1, .close2, .close3{
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 42px;
+    transform: rotate(45deg);
+    cursor: pointer;
+    color: white;
+}
+.close:hover, .close1:hover, .close2:hover, .close3:hover{
+     color:red;
+}
+.level{
+    display:flex;
+    
+    
+
+}
+.levels{
+    border-radius: 10px;
+    width: 97%;
+    height: 97%;
+    background: rgba(55,55,55,.70);
+    background-image: url(img/lvb.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    margin-top: 10px;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ .c1:hover, .c2:hover, .c3:hover, .c4:hover, .c5:hover{
+    background: rgba(55,55,55,.30);
+    cursor: pointer; 
+    
+    
+}
+img{
+ margin-top: 13px;
+ margin-left: 10px;
+ cursor: pointer;
+
+}
+img:hover{
+ background: rgba(300,255,255,.1);
+}
+.a, .b, .c, .d, .e, .f, .g, .h, .i, .j, .k{
+    float: left;
+    margin-left: 7px; 
+}
+.taskb{
+    height: 40px;
+    background-color: orange;
+    border-radius: 10px;
+    margin-top: 12%;
+    width: 620px;
+    margin-left: 30%;
+    background: rgba(35,30,30,.50);
+    box-shadow: 0 5px 15px rgba(0,0,0.5)
+}
+.menu{
+    display: none;
+    background: rgba(255,255,255,.50);
+    box-shadow: rgba(35,30,30,.50);
+    width:15%;
+    font-size: 20px;
+    position: absolute;
+    height: 15%;
+
+}
+a{
+    text-decoration: none;
+    color:#fff;
+    font-size: 12px;
+
+}
+.shutb{
+    position: absolute;
+    margin-top:120px;
+    left: 0;
+    margin-left: 40px;
+    cursor: pointer; 
+
+}
+.mail{
+  color: red;
+}
+.note{
+  display: none;
+    border-radius: 10px;
+    width: 65%;
+    height: 100%;
+    background-color:#282828;
+    color:#5af93b;
+    font-size: 17px;
+    position:relative;
+    margin-top: 3%;
+    right: 25%;
+    overflow-x: auto;
+    overflow-y:scroll;
+   
+    
+}
+.desktop{
+  color: white;
+}
+.noteml{
+  top: 0;
+  width: 40px;
+  height: 40px;
+}
+.cmd{
+  display: none;
+    background-color: black;
+    width:51%;
+    height:60%;
+    color: green;
+    margin-bottom: 200px;
+    font-size: 15;
+    position: relative;
+    margin-top: 0%;
+    right: 10%;
+   overflow-x: auto;
+   overflow-y:scroll;
+}
+
+.title{
+    background-color:#333333;
+    width: 698px;
+    height: 34px;  
+    color:green;         
+}
+.bt{
+    background-color: #333333;
+    margin-left: 380px;
+    border-color: #333333;
+    border-left-color: #333333;
+    height: 2px;
+    
+}
+.bt:hover{
+    background-color: red;
+}
+input{
+    background:transparent;
+    color: green;
+    border:transparent; 
+    font-size: 13px;
+}
+.m{
+    margin-top: 4px;
+   margin-left: 15px;
+}
+span{
+    color:greeng;
+    margin-left: 5px;
+    width: 50px;
+    font-style: all;
+}
+.tl{
+    color:white ;
+    margin-left: 5px;
+    width: 50px;
+    font-style: all;
+}
+.cd1{
+  display: none;
+}
+.viewg{
+  display: none;
+}
+.ads{
+right: 80%;
+
+}
+.word{
+  animation: type 5s steps(600);
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: consolas;
+  border-right:4px solid black;
+  width: 90ch;
+}
+@keyframes type {
+  0%{
+    width: 0ch;
+  }
+  100%{
+    width: 90ch;
+  }
+}.dir{
+  margin-top: 30px;
+  display: none;
+}
+.attrib{
+  display: none;
+}
+.attrib1{
+  display: none;
+}
+.attrib2{
+  display: none;
+}
+</style>
+<body>
+<audio autoplay loop>
+    <source src="audio/b.mp3" type="audio/mpeg">
+</audio>
+<div class="loader">
+<img src="img/wel.gif" alt="Loading..." />
+</div>
+<div class="level">
+<div class="levels">
+    <div class="close1">+</div>
+    
+    <div class="winc">
+        <a href="level1.html"></a> 
+        <img src="img/vb.jpg" width="150" height="90" class="lvl">
+        <a href="level1c.html"><img src="img/lvl.png" width="150" height="90"></a> 
+        <img src="img/lvl1.png" width="130" height="110">
+        <br>
+        <img src="img/lock.png" width="130" height="110">
+        <img src="img/lock.png" width="130" height="110">
+        <img src="img/lock.png" width="130" height="110"><br>
+        <img src="img/lock.png" width="130" height="110">
+        <img src="img/lock.png" width="130" height="110">
+        <img src="img/lock.png" width="130" height="110">
+
+    </div>  
+    <a href="h0.html"><img src="img/fh.png" class="shutb" width="30" height="30"></a>
+    <img src="img/lv.gif" class="ads1">
+</div>
+ </div>
+
+ <div class="note">
+   <div class="close2">+</div>
+  <img src="img/meil2.gif" class="noteml">
+   <center>
+    <br><br>HacKer123<br><br>
+    <pre class="word">Welcome to hacker123 if you are here it means<br>
+that you have bypassed this Virtul-PC security system.<br>
+We are looking for highly  intelligent Ethical Hackers.<br>
+To find them, we have devised a test.<br><br>
+#A group of hackers are wanted and this PC<br>
+belongs to one of them.<br>
+#Has a Ethical Hacker use this PC to track them<br>
+and find out there next mition.<br><br><br>
+*There is one file on the Desktop you need to find it<br> 
+and press F2. The password to the next Level is the name of the hidden file<br></pre>
+
+   </center>
+ </div>
+
+
+
+
+
+
+ <div  class="cmd">
+<div class="title"><img src="img/cmdlg.png" class="m" width="25" height="20" ><span class="tl">C:\Windows\system32\cmd.exe</span>
+   <div class="close3">+</div> 
+  <span class="span">
+     <p>Microsoft Windows [Version 10.0.10586]<br>
+(c) 2015 Microsoft Corporation. All rights reserved.</p>
+<div class="dir">
+<pre>
+C:\Users\Hacker123>dir
+ Volume in drive C has no label.
+ Volume Serial Number is ECC2-795E
+
+ Directory of C:\Users\Hacker123
+
+04/27/2020  06:03 PM    DIR          .
+04/27/2020  06:03 PM    DIR          ..
+04/30/2020  12:03 AM    DIR          Desktop
+04/28/2020  04:22 AM    DIR          Documents
+04/28/2020  09:21 AM    DIR          Downloads
+01/31/2020  06:46 PM    DIR          Favorites
+01/31/2020  06:46 PM    DIR          Links
+04/27/2020  01:39 AM    DIR          Music
+04/27/2020  03:46 PM    DIR          Pictures
+04/25/2020  05:37 PM    DIR          Videos
+</pre>
+</div>
+<div class="attrib">
+<pre>
+C:\Users\Hacker123>attrib
+A                    C:\Users\Tesla\.packettracer
+A                    C:\Users\Tesla\ngrok
+A                    C:\Users\Tesla\ngrok-stable-linux-amd64.zip
+</pre>
+</div>
+<div class="attrib1">
+<pre>
+C:\Users\Hacker123>attrib -h /d
+</pre>
+</div>
+<div class="attrib2">
+<pre>
+C:\Users\Hacker123>attrib -r -s -h /s /d
+</pre>
+</div>
+
+
+<div id="cmd" class="call"><pre>C:\Users\Hacker123> <input type="text" size="34%" id="password"></pre></div>
+  
+  </span>
+</div>
+</div>
+
+
+
+
+<div class="wina">
+<div class="win">
+    <div class="close">+</div>
+    
+    <div class="winc">
+        <img src="img/d1.jpg" width="150" height="90">
+        <img src="img/d2.png" width="150" height="90">
+        <br>
+        <img src="img/d4.png" width="150" height="90">
+        <img src="img/d3.png" width="150" height="90">
+        <br>
+        <a href="level1.html"><img src="img/lvb1.jpg" width="150" height="90"></a>
+    </div>  
+    <a href="h0.html"><img src="img/fh.png" class="shutb" width="30" height="30"></a>
+</div>
+ </div>
+
+<div class="desktop">
+
+     <div class="a">
+    <div class="dragzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+       <img src="img/logob.png"   width="50" height="48" id="dragelement" ondragstart="dragstart(event)" class="tra">
+        <pre>  trash </pre>
+    </div>
+    <div class="dragzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+        <a href="Rc.html"> <img src="img/logo1.ico"   width="50" height="45" id="dragelement1" ondragstart="dragstart(event)" >
+            <pre> ZHackers </pre></a>
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+       <img src="img/meil2.gif"   width="50" height="45" id="dragelement1" ondragstart="dragstart(event)" class="ml" >
+            <pre class="mail"> Message </pre>
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+    
+</div>
+
+ <div class="b">
+    <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+      <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+  
+    
+</div>
+
+ <div class="c">
+    <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+   
+    
+    
+</div>
+    
+
+ <div class="d">
+    <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+      <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+    
+    
+</div>
+
+ <div class="e">
+    <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+      <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+
+    
+</div>
+
+ <div class="f">
+    <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+       <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+    
+    
+</div>
+
+ <div class="g">
+    <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+      <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+    
+    
+</div>
+
+ <div class="h">
+    <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+       <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+    
+    
+</div>
+
+ <div class="i">
+    <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+      <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    </div>
+    
+    
+</div>
+
+
+</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+<div class="taskb"> 
+<center>
+    <img src="img/winc.png" width="20" height="20" class="c1" id="winc">
+
+    <img src="img/sch.png" width="20" height="20" class="c2">
+    
+    <img src="img/cmdlg.png" width="20" height="20" class="c3">
+    
+    <img src="img/store.png" width="20" height="20" class="c4">
+    
+    <img src="img/wins.jpg" width="20" height="20" class="c5">
+</center>
+
+
+</div>
+
+  
+
+ 
+<script type="text/javascript">
+
+
+
+ /*This code here is for the loading  Gif image */   
+    window.addEventListener("load", function () {
+    const loader = document.querySelector(".loader");
+    loader.className += " hidden"; // class "loader hidden"
+
+});
+// Enter Envet when key-Enter=13 is clicked
+  window.addEventListener("keydown", function checkkeyPress(key){
+    if(key.keyCode == "13"){
+         login()
+    }
+});
+/*javascript Desktop Event*/
+var id ;
+function allowdrop(ev){
+    ev.preventDefault();
+}
+
+function dragstart(ev){
+    id=ev.target.id;
+   // alert(" Col"+id);
+}
+
+function dragstart1(ev){
+    id=ev.target.id;
+   // alert(" Col"+id);
+}
+function drop(ev){
+  
+  ev.target.append(document.getElementById(id));
+}
+
+
+document.getElementById('winc').addEventListener('click', 
+    function(){
+        document.querySelector('.wina').style.display = 'flex';
+ 
+        
+    });
+document.querySelector('.close').addEventListener('click',
+    function(){
+        document.querySelector('.wina').style.display = 'none';
+        
+       
+        
+    });
+document.querySelector('.close1').addEventListener('click',
+    function(){
+        document.querySelector('.level').style.display = 'none';
+        
+       
+        
+    });
+document.querySelector('.close2').addEventListener('click',
+    function(){
+        document.querySelector('.note').style.display = 'none';
+        
+       
+        
+    });
+document.querySelector('.lvl').addEventListener('click',
+    function(){
+        document.querySelector('.level').style.display = 'none';
+        
+       
+        
+    });
+document.querySelector('.ml').addEventListener('click',
+    function(){
+        document.querySelector('.note').style.display = 'flex';
+        document.querySelector('.note').style.position = 'absolute';
+        document.querySelector('.note').style.height = '60%';
+        document.querySelector('.cmd').style.height = '6%';
+     
+    });
+document.querySelector('.c3').addEventListener('click',
+    function(){
+        document.querySelector('.cmd').style.display = 'flex';
+         document.querySelector('.cmd').style.position = 'absolute';
+         document.querySelector('.cmd').style.height = '60%';
+         document.querySelector('.note').style.height = '6%';  
+    });
+
+document.querySelector('.close3').addEventListener('click',
+    function(){
+        document.querySelector('.cmd').style.display = 'none';
+
+        
+    });
+document.querySelector('.title').addEventListener('click',
+    function(){
+        document.querySelector('.cmd').style.height = '60%';
+        document.querySelector('.note').style.height = '6%';
+        
+    });
+document.querySelector('.note').addEventListener('click',
+    function(){
+        document.querySelector('.note').style.height = '60%';
+        document.querySelector('.cmd').style.height = '6%';
+        
+    });
+
+
+
+
+ // Create a cmd code system
+
+var objPeople = [
+    {
+        
+        password: 'net'
+
+    }
+
+
+]
+
+// CMD functionality
+function login() {
+    
+    // retreive data from password and store in password variable
+    var net = 'net'
+    var password = document.getElementById('password').value
+
+    // loop through all cmd commands
+   for(var i = 0; i < objPeople.length; i++) {
+        // check to 
+        if(password == 'net') {
+            alert(password+'  is not necessary at this moment.' );
+            // For true change of page
+            
+       } else if (password == 'dir') {
+            document.querySelector('.dir').style.display = 'flex';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib2').style.display = 'none';
+        } else if (password == 'dir ') {
+            document.querySelector('.dir').style.display = 'flex';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib2').style.display = 'none';
+        } else if (password == ' dir') {
+            document.querySelector('.dir').style.display = 'flex';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib2').style.display = 'none';
+        } else if (password == ' dir ') {
+            document.querySelector('.dir').style.display = 'flex';
+            document.querySelector('.attrib').style.display = 'none';
+        } else if (password == 'Dir') {
+            document.querySelector('.dir').style.display = 'flex';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib2').style.display = 'none';
+        } else if (password == ' Dir') {
+            document.querySelector('.dir').style.display = 'flex';
+            document.querySelector('.attrib').style.display = 'none';
+        }  else if (password == 'Dir ') {
+            document.querySelector('.dir').style.display = 'flex';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib2').style.display = 'none';
+        } else if (password == ' Dir ') {
+            document.querySelector('.dir').style.display = 'flex';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib2').style.display = 'none';
+        }
+
+        else if (password == 'cd') {
+            alert('You are in the current Directory');
+        } else if (password == 'cd ') {
+            alert('You are in the current Directory');
+        } else if (password == ' cd') {
+            alert('You are in the current Directory');
+        } else if (password == ' cd ') {
+            alert('You are in the current Directory');
+        } else if (password == 'Cd') {
+            alert('You are in the current Directory');
+        } else if (password == ' Cd') {
+            alert('You are in the current Directory');
+        }  else if (password == 'Cd ') {
+            alert('You are in the current Directory');
+        } else if (password == ' Cd ') {
+            alert('You are in the current Directory');
+        }
+
+         else if (password == 'cd ..') {
+            alert('you cannot get to User directory at this level');
+        } else if (password == 'cd ..') {
+           alert('you cannot get to User directory at this level');
+        } else if (password == ' cd ..') {
+            alert('you cannot get to User directory at this level');
+        } else if (password == ' cd ..') {
+            alert('you cannot get to User directory at this level');
+        } else if (password == 'Cd ..') {
+            alert('you cannot get to User directory at this level');
+        } else if (password == ' Cd ..') {
+            alert('you cannot get to User directory at this level');
+        }  else if (password == 'Cd ..') {
+            alert('you cannot get to User directory at this level');
+        } else if (password == ' Cd ..') {
+           alert('you cannot get to User directory at this level');
+        }
+
+         
+
+        else if (password == 'cd Desktop') {
+            location.replace("level1b.html")
+        } else if (password == ' cd Desktop') {
+            location.replace("level1b.html")
+        } else if (password == 'cd desktop') {
+            location.replace("level1b.html")
+        } else if (password == ' cd desktop') {
+            location.replace("level1b.html")
+        } else if (password == ' cd  desktop') {
+            location.replace("level1b.html")
+        } else if (password == 'cd  desktop') {
+            location.replace("level1b.html")
+        } else if (password == 'cd  Desktop') {
+            location.replace("level1b.html")
+        }else if (password == 'cd Desktop ') {
+            location.replace("level1b.html")
+        }else if (password == 'cd desktop ') {
+            location.replace("level1b.html")
+        }else if (password == ' cd  desktop ') {
+            location.replace("level1b.html")
+        }else if (password == ' cd  Desktop ') {
+            location.replace("level1b.html")
+        }else if (password == 'Cd Desktop') {
+            location.replace("level1b.html")
+        } else if (password == ' Cd Desktop') {
+            location.replace("level1b.html")
+        } else if (password == 'Cd desktop') {
+            location.replace("level1b.html")
+        } else if (password == ' Cd desktop') {
+            location.replace("level1b.html")
+        } else if (password == ' Cd  desktop') {
+            location.replace("level1b.html")
+        } else if (password == 'Cd  desktop') {
+            location.replace("level1b.html")
+        } else if (password == 'Cd  Desktop') {
+            location.replace("level1b.html")
+        }else if (password == 'Cd Desktop ') {
+            location.replace("level1b.html")
+        }else if (password == 'Cd desktop ') {
+            location.replace("level1b.html")
+        }else if (password == ' Cd  desktop ') {
+            location.replace("level1b.html")
+        }else if (password == ' Cd  Desktop ') {
+            location.replace("level1b.html")
+        }
+
+
+        else if (password == 'attrib') {
+            document.querySelector('.attrib').style.display = 'flex';
+            document.querySelector('.dir').style.display = 'none';
+            document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib2').style.display = 'none';
+        }else if (password == ' attrib') {
+            document.querySelector('.attrib').style.display = 'flex';
+            document.querySelector('.dir').style.display = 'none';
+            document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib2').style.display = 'none';
+        }else if (password == 'attrib ') {
+            document.querySelector('.attrib').style.display = 'flex';
+            document.querySelector('.dir').style.display = 'none';
+            document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib2').style.display = 'none';
+        }else if (password == ' attrib ') {
+            document.querySelector('.attrib').style.display = 'flex';
+            document.querySelector('.dir').style.display = 'none';
+        }else if (password == 'Attrib') {
+            document.querySelector('.attrib').style.display = 'flex';
+            document.querySelector('.dir').style.display = 'none';
+            document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib2').style.display = 'none';
+        }else if (password == 'Attrib ') {
+            document.querySelector('.attrib').style.display = 'flex';
+            document.querySelector('.dir').style.display = 'none';
+            document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib2').style.display = 'none';
+        }else if (password == ' Attrib') {
+            document.querySelector('.attrib').style.display = 'flex';
+            document.querySelector('.dir').style.display = 'none';
+            document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib2').style.display = 'none';
+        }else if (password == ' Attrib') {
+            document.querySelector('.attrib').style.display = 'flex';
+            document.querySelector('.dir').style.display = 'none';
+            document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib2').style.display = 'none';
+
+        }
+
+
+        else if (password == 'attrib -h /d') {
+            document.querySelector('.attrib1').style.display = 'flex';
+            document.querySelector('.attrib2').style.display = 'none';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.dir').style.display = 'none';
+        }else if (password == ' attrib -h /d') {
+           document.querySelector('.attrib1').style.display = 'flex';
+           document.querySelector('.attrib2').style.display = 'none';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.dir').style.display = 'none';
+        }else if (password == 'attrib -s -r -h /s /d') {
+           document.querySelector('.attrib2').style.display = 'flex';
+           document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.dir').style.display = 'none';
+        }else if (password == 'attrib -r -s -h /s /d') {
+           document.querySelector('.attrib2').style.display = 'flex';
+           document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.dir').style.display = 'none';
+        }else if (password == 'attrib -h -r -s /s /d') {
+          document.querySelector('.attrib2').style.display = 'flex';
+           document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.dir').style.display = 'none';
+        }else if (password == 'attrib -r -h -s /s /d') {
+            document.querySelector('.attrib2').style.display = 'flex';
+           document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.dir').style.display = 'none';
+        }else if (password == 'attrib -s -h -r /s /d') {
+            document.querySelector('.attrib2').style.display = 'flex';
+           document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.dir').style.display = 'none';
+        }else if (password == 'attrib -h -s -r /s /d') {
+            document.querySelector('.attrib2').style.display = 'flex';
+           document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.dir').style.display = 'none';
+        }
+         
+
+         else if (password == 'attrib -s -r -h /d') {
+           document.querySelector('.attrib2').style.display = 'flex';
+           document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.dir').style.display = 'none';
+        }else if (password == 'attrib -r -s -h /d') {
+           document.querySelector('.attrib2').style.display = 'flex';
+           document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.dir').style.display = 'none';
+        }else if (password == 'attrib -h -r -s /d') {
+          document.querySelector('.attrib2').style.display = 'flex';
+           document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.dir').style.display = 'none';
+        }else if (password == 'attrib -r -h -s /d') {
+            document.querySelector('.attrib2').style.display = 'flex';
+           document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.dir').style.display = 'none';
+        }else if (password == 'attrib -s -h -r /d') {
+            document.querySelector('.attrib2').style.display = 'flex';
+           document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.dir').style.display = 'none';
+        }else if (password == 'attrib -h -s -r /d') {
+            document.querySelector('.attrib2').style.display = 'flex';
+           document.querySelector('.attrib1').style.display = 'none';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.dir').style.display = 'none';
+        }
+
+        else if (password == 'net ') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == ' net') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net ') {
+            alert(password+'  is not necessary at this moment.' );
+        }
+
+
+        else if (password == 'Net user') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net  user') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net  user ') {
+            alert(password+'  is not necessary at this moment.' );
+        } else if (password == 'Net user ') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'net  user') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'net  user ') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'net user ') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'net user') {
+            alert(password+'  is not necessary at this moment.' );
+        }
+
+        else if (password == ' cls') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'cls ') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Cls') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'cls') {
+            alert(password+'  is not necessary at this moment.' );
+        }
+        else if (password == 'net user Hacker123') {
+            alert(password+'  is not necessary at this moment.' );
+        }
+
+      
+          else if (password == 'net user Hacker123 *') {
+            alert(password+'  is not necessary at this moment.' );
+        } else if (password == 'Net user Hacker123 *') {
+            alert(password+'  is not necessary at this moment.' );
+        } else if (password == 'net user Hacker123 * ') {
+            alert(password+'  is not necessary at this moment.' );
+        } else if (password == 'Net user Hacker123 * ') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'net user Hacker123  *') {
+            alert(password+'  is not necessary at this moment.' );
+        } else if (password == 'Net user Hacker123  *') {
+            alert(password+'  is not necessary at this moment.' );
+        } else if (password == 'net user Hacker123  * ') {
+            alert(password+'  is not necessary at this moment.' );
+        } else if (password == 'Net user Hacker123  * ') {
+            alert(password+'  is not necessary at this moment.' );
+        }
+
+         else if (password == 'net user Hacker123 /random') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net user Hacker123 /random') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'net user Hacker123 /random ') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net user Hacker123 /random ') {
+            alert(password+'  is not necessary at this moment.' );
+        } else if (password == 'net user Hacker123  /random') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net user Hacker123  /random') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'net user Hacker123  /random ') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net user Hacker123  /random ') {
+            alert(password+'  is not necessary at this moment.' );
+        }
+
+
+        else if (password == 'net user Hacker123 ""') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net user Hacker123 ""') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net user Hacker123 "" ') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'net user Hacker123 "" ') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'net user Hacker123  ""') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net user Hacker123  ""') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net user Hacker123  "" ') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'net user Hacker123  "" ') {
+            alert(password+'  is not necessary at this moment.' );
+        }
+        else {
+            // error if username and password don't match
+            alert(password+'  is not recognized as an internal or external command at this level, Please check the message box to use the right command' );
+        }
+
+    }
+}
+document.getElementById('help').addEventListener('click', 
+    function(){
+        document.querySelector('.wina').style.display = 'flex';
+       
+        
+    });
+document.querySelector('.close').addEventListener('click',
+    function(){
+        document.querySelector('.wina').style.display = 'none';
+    
+       
+        
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

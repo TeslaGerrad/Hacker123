@@ -1,2 +1,5 @@
 # Hacker123
-A software designed for Hackers and Programmers
+A Educational software designed for Ethical Hackers and Programmers
+
+## license
+[GNU GENERAL PUBLIC LICENSE](LICENSE)

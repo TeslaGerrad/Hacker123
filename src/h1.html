@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>123.0.0.1</title>
+</head>
+<style type="text/css">
+    body{
+        background-color: black;
+        background-image: url(img/bg.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        
+    }
+	
+
+
+.loader {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader > img {
+    width: 30px;
+    height:30px;
+}
+
+.loader.hidden {
+    animation: fadeOut 9s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+    100% {
+        opacity: 50;
+        visibility: hidden;
+    }
+}
+.a h2{
+    color: white;
+    margin-left: 50px;
+}
+.a {
+
+    
+        width: 100px;
+        height: 70px;
+        margin-left: 583px;
+        margin-top: 120px;
+}
+
+.b{
+    width: 150px;
+    height: 40px;
+    margin-left: 1200px;
+        margin-top: 210px;
+}
+form{       
+ margin-top: 190px;
+ margin-left: 588px;
+ 
+}
+button{
+    color: white;
+    background-color: #016cf0;
+    border-color: white;
+}
+.tra{
+    background:transparent;
+    border:transparent;
+    margin-left: 50px;
+}
+</style>
+
+
+<script type="text/javascript">
+
+window.addEventListener("keydown", function checkkeyPress(key){
+    if(key.keyCode == "13"){
+         login();
+         
+    }
+});
+
+
+
+ /*This code here is for the loading  Gif image */   
+	window.addEventListener("load", function () {
+    const loader = document.querySelector(".loader");
+    loader.className += " hidden"; // class "loader hidden"
+});
+
+/*javascript Event*/
+
+/* And this is for the loging button fuction*/
+
+    // Create a registration system
+var objPeople = [
+    {
+        
+        password: 'HacKer123'
+    }
+
+]
+
+// login functionality
+function login() {
+    
+    // retreive data from password and store in password variable
+    var password = document.getElementById('script').value
+
+    // loop through all the user pbjects and confrim if the username and password are correct
+    for(var i = 0; i < objPeople.length; i++) {
+        // check to 
+        if(password == objPeople[i].password) {
+            alert('  Access  Denued  ' );
+            // For true change of page
+            break
+        } 
+         else if (password == 'hacker123') {
+           alert('  Access  Denued  ' );
+        } else if (password == ' hacker123') {
+            alert('  Access  Denued  ' );
+        } else if (password == '?') {
+           alert('  Access  Denued  ' );
+        } else if (password == 'ghost') {
+            alert('  Access  Denued  ' );
+        } else if (password == 'password') {
+            alert('  Access  Denued  ' );
+        } else if (password == ' Dir') {
+            document.querySelector('.dir').style.display = 'flex';
+            document.querySelector('.attrib').style.display = 'none';
+        }  else if (password == 'Dir ') {
+            document.querySelector('.dir').style.display = 'flex';
+            document.querySelector('.attrib').style.display = 'none';
+        } else if (password == ' Dir ') {
+            document.querySelector('.dir').style.display = 'flex';
+            document.querySelector('.attrib').style.display = 'none';
+        }
+
+        else if (password == 'cd') {
+            alert('You are in the current Directory');
+        } else if (password == 'cd ') {
+            alert('You are in the current Directory');
+        } else if (password == ' cd') {
+            alert('You are in the current Directory');
+        } else if (password == ' cd ') {
+            alert('You are in the current Directory');
+        } else if (password == 'Cd') {
+            alert('You are in the current Directory');
+        } else if (password == ' Cd') {
+            alert('You are in the current Directory');
+        }  else if (password == 'Cd ') {
+            alert('You are in the current Directory');
+        } else if (password == ' Cd ') {
+            alert('You are in the current Directory');
+        }
+
+         else if (password == 'cd ..') {
+             location.replace("level111.html")
+        } else if (password == 'cd ..') {
+           location.replace("level111.html")
+        } else if (password == ' cd ..') {
+            location.replace("level111.html")
+        } else if (password == ' cd ..') {
+            location.replace("level1111.html")
+        } else if (password == 'Cd ..') {
+            location.replace("level111.html")
+        } else if (password == ' Cd ..') {
+            location.replace("level111.html")
+        }  else if (password == 'Cd ..') {
+            location.replace("level111.html")
+        } else if (password == ' Cd ..') {
+           location.replace("level1111.html")
+        }
+
+         
+
+        else if (password == 'cd Desktop') {
+            alert('You are in the current Directory');
+        } else if (password == ' cd Desktop') {
+            alert('You are in the current Directory');
+        } else if (password == 'cd desktop') {
+            alert('You are in the current Directory');
+        } else if (password == ' cd desktop') {
+            alert('You are in the current Directory');
+        } else if (password == ' cd  desktop') {
+            alert('You are in the current Directory');
+        } else if (password == 'cd  desktop') {
+            alert('You are in the current Directory');
+        } else if (password == 'cd  Desktop') {
+            alert('You are in the current Directory');
+        }else if (password == 'cd Desktop ') {
+            alert('You are in the current Directory');
+        }else if (password == 'cd desktop ') {
+            alert('You are in the current Directory');
+        }else if (password == ' cd  desktop ') {
+            alert('You are in the current Directory');
+        }else if (password == ' cd  Desktop ') {
+            alert('You are in the current Directory');
+        }else if (password == 'Cd Desktop') {
+            alert('You are in the current Directory');
+        } else if (password == ' Cd Desktop') {
+            alert('You are in the current Directory');
+        } else if (password == 'Cd desktop') {
+            alert('You are in the current Directory');
+        } else if (password == ' Cd desktop') {
+            alert('You are in the current Directory');
+        } else if (password == ' Cd  desktop') {
+            alert('You are in the current Directory');
+        } else if (password == 'Cd  desktop') {
+            alert('You are in the current Directory');
+        } else if (password == 'Cd  Desktop') {
+            alert('You are in the current Directory');
+        }else if (password == 'Cd Desktop ') {
+            alert('You are in the current Directory');
+        }else if (password == 'Cd desktop ') {
+            alert('You are in the current Directory');
+        }else if (password == ' Cd  desktop ') {
+            alert('You are in the current Directory');
+        }else if (password == ' Cd  Desktop ') {
+            alert('You are in the current Directory');
+        }
+
+
+        else if (password == 'attrib') {
+            document.querySelector('.attrib').style.display = 'flex';
+            document.querySelector('.dir').style.display = 'none';
+        }else if (password == ' attrib') {
+            document.querySelector('.attrib').style.display = 'flex';
+            document.querySelector('.dir').style.display = 'none';
+        }else if (password == 'attrib ') {
+            document.querySelector('.attrib').style.display = 'flex';
+            document.querySelector('.dir').style.display = 'none';
+        }else if (password == ' attrib ') {
+            document.querySelector('.attrib').style.display = 'flex';
+            document.querySelector('.dir').style.display = 'none';
+        }else if (password == 'Attrib') {
+            document.querySelector('.attrib').style.display = 'flex';
+            document.querySelector('.dir').style.display = 'none';
+        }else if (password == 'Attrib ') {
+            document.querySelector('.attrib').style.display = 'flex';
+            document.querySelector('.dir').style.display = 'none';
+        }else if (password == ' Attrib') {
+            document.querySelector('.attrib').style.display = 'flex';
+            document.querySelector('.dir').style.display = 'none';
+        }else if (password == ' Attrib') {
+            document.querySelector('.attrib').style.display = 'flex';
+            document.querySelector('.dir').style.display = 'none';
+        }
+
+
+         
+
+        else if (password == 'net ') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == ' net') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net ') {
+            alert(password+'  is not necessary at this moment.' );
+        }
+
+
+        else if (password == 'Net user') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net  user') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net  user ') {
+            alert(password+'  is not necessary at this moment.' );
+        } else if (password == 'Net user ') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'net  user') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'net  user ') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'net user ') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'net user') {
+            alert(password+'  is not necessary at this moment.' );
+        }
+        
+        else if (password == 'Who-am-i') {
+         location.replace("level1.html")
+        }else if (password == 'who-am-i') {
+            location.replace("level1.html")
+        }
+
+        else if (password == ' cls') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'cls ') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Cls') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'cls') {
+            alert(password+'  is not necessary at this moment.' );
+        }
+        else if (password == 'net user Hacker123') {
+            alert(password+'  is not necessary at this moment.' );
+        }
+
+      
+          else if (password == 'net user Hacker123 *') {
+            alert(password+'  is not necessary at this moment.' );
+        } else if (password == 'Net user Hacker123 *') {
+            alert(password+'  is not necessary at this moment.' );
+        } else if (password == 'net user Hacker123 * ') {
+            alert(password+'  is not necessary at this moment.' );
+        } else if (password == 'Net user Hacker123 * ') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'net user Hacker123  *') {
+            alert(password+'  is not necessary at this moment.' );
+        } else if (password == 'Net user Hacker123  *') {
+            alert(password+'  is not necessary at this moment.' );
+        } else if (password == 'net user Hacker123  * ') {
+            alert(password+'  is not necessary at this moment.' );
+        } else if (password == 'Net user Hacker123  * ') {
+            alert(password+'  is not necessary at this moment.' );
+        }
+
+         else if (password == 'net user Hacker123 /random') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net user Hacker123 /random') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'net user Hacker123 /random ') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net user Hacker123 /random ') {
+            alert(password+'  is not necessary at this moment.' );
+        } else if (password == 'net user Hacker123  /random') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net user Hacker123  /random') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'net user Hacker123  /random ') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net user Hacker123  /random ') {
+            alert(password+'  is not necessary at this moment.' );
+        }
+
+
+        else if (password == 'net user Hacker123 ""') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net user Hacker123 ""') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net user Hacker123 "" ') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'net user Hacker123 "" ') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'net user Hacker123  ""') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net user Hacker123  ""') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'Net user Hacker123  "" ') {
+            alert(password+'  is not necessary at this moment.' );
+        }else if (password == 'net user Hacker123  "" ') {
+            alert(password+'  is not necessary at this moment.' );
+        }
+        else {
+            // error if username and password don't match
+
+            alert('Error Incorrect Password...... Has a HACKER  crack the password to unlock the Virtual-PC. Good Luck' );
+            console.log('Message---To crack the password.<1>Reboot the the Virtual-PC by clicking the power button Bellow.<2>Go to advance-option,Troubleshoot,Advance and CMD.');
+        }
+       
+    }
+}
+
+</script>
+<body>
+<audio autoplay>
+    <source src="audio/c.mp3" type="audio/mpeg">
+</audio>
+<div class="loader">
+    <pre>
+ <img src="img/winc1.png">
+<br><br>
+
+
+
+
+     <img src="img/g.gif"  alt="Loading..."  width="75" height="75">   
+    </pre>
+    
+
+</div>
+
+
+<div class="a">
+
+             <img src="img/winm.png" width="200" height="200" />
+             <h2>HacKer123</h2>
+</div>
+      <form>
+        
+        <input type="password" id="script"  class="me" placeholder="Password"/>
+             <button type="button" onclick="login()">-></button><br><br>
+             <input type="" class="tra" placeholder="Sign-in options" size="9"/>
+             </form>
+<div class="b">
+
+             <img src="img/B3.png"  width="27" height="25" class="a1" />
+             <img src="img/B4.png"  width="40" height="34" class="a2" />
+           <a href="h2.html"><img src="img/c2.png" width="27" height="24" class="a3"  /></a>  
+
+</div> 
+
+
+</body>
+</html>
