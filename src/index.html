@@ -1,50 +1,75 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <title>Hacker123</title>
+  </head>
 
+  <script src="./counter.js" type="text/javascript">
+  </script>
+  <style type="text/css">
+    body {
+      background-color: black;
+    }
 
-	<title>Hacker123</title>
+    .hackerLogo {
+      position: absolute;
+      margin-left: -20%;
+      margin-top: 15%;
+    }
 
-</head>
- 
-    <script type="text/javascript">
-    	
-    </script>
-    <style type="text/css">
+    #output {
+      color: white;
+      font: bold;
+      position: absolute;
+      top: 60%;
+      left:35%;
+    }
+    .content{
+        display:flex;
+        flex-direction: row;
+    }
+    #output{
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        align-items:center;
+        justify-content: center;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color:rgb(94, 53, 132);
+        box-shadow: 0 20px 25px rgba(118, 53, 132, 0.945);
+        padding: 10px;
 
-body {
-	background-color: black;
-}
-
-.hackerLogo{
-    position:absolute;
-    margin-left: -20%;
-    margin-top: 15%;
-}
-
-
-    </style>
-<body>
+    }
+    #output h1{
+        font-size: 17px;
+    }
+  </style>
+  <body>
     <center>
-        <div class="Logos">
-            <a href="h1.html">  <img src="img/in.png" width="600" height="150" class="hackerLogo"></a>
-        </div>
-
+      <div class="Logos">
+        <a href="h1.html">
+          <img src="img/in.png" width="600" height="150" class="hackerLogo"
+        /></a>
+      </div>
+      
     </center>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
+    <div id="output">
+        <div>
+            <h1>Downloads</h1>
+            <h2 id="counter"></h2>
+        </div>
+        <div>
+            <h1>Users</h1>
+            <h2 id="users"></h2>
+        </div>
+        <div>
+            <h1>Git Push</h1>
+            <h2 id="git"></h2>
+        </div>
+        <div>
+            <h1>contributors</h1>
+            <h2 id="con"></h2>
+        </div>
+      </div>
+  </body>
 </html>
