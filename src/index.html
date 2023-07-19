@@ -1,58 +1,24 @@
+
+
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Hacker123</title>
-  </head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacker123</title>
+  <link rel="stylesheet" href="styles/index.css">
+</head>
 
   <script src="./counter.js" type="text/javascript">
   </script>
-  <style type="text/css">
-    body {
-      background-color: black;
-    }
-
-    .hackerLogo {
-      position: absolute;
-      margin-left: -20%;
-      margin-top: 15%;
-    }
-
-    #output {
-      color: white;
-      font: bold;
-      position: absolute;
-      top: 60%;
-      left:35%;
-    }
-    .content{
-        display:flex;
-        flex-direction: row;
-    }
-    #output{
-        display: flex;
-        flex-direction: row;
-        gap: 2rem;
-        align-items:center;
-        justify-content: center;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        color:rgb(94, 53, 132);
-        box-shadow: 0 20px 25px rgba(118, 53, 132, 0.945);
-        padding: 10px;
-
-    }
-    #output h1{
-        font-size: 17px;
-    }
-  </style>
   <body>
     <center>
-      <div class="Logos">
-        <a href="h1.html">
-          <img src="img/in.png" width="600" height="150" class="hackerLogo"
-        /></a>
-      </div>
+          <a href="h1.html">
+          <img src="img/in.png" alt="ing" width="600" height="150" class="hackerLogo zoom "/>
+          </a>
+      </center>
       
-    </center>
+    
     <div id="output">
         <div>
             <h1>Downloads</h1>
@@ -71,5 +37,11 @@
             <h2 id="con"></h2>
         </div>
       </div>
+      <script>
+        window.addEventListener('load',function(){
+          const zoomElement = document.querySelector('.zoom');
+          zoomElement.classList.add('animate')
+        })
+      </script>
   </body>
 </html>
