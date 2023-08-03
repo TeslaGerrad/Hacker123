@@ -1,3 +1,46 @@
+* {
+    font-family:"Raleway";
+  }
+  #notification-area {
+    position:fixed;
+    top:0px;
+    right:10px;
+    width:250px;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+  }
+  #notification-area .notification {
+    position:relative;
+    padding:15px 10px;
+    background:#111;
+    color:greenyellow;
+    font-family:"Raleway";
+    font-size:14px;
+    font-weight:600;
+    border-radius:5px;
+    margin:5px 0px;
+    opacity:0;
+    left:20px;
+    animation:showNotification 1500ms ease-in-out forwards;
+  }
+  @keyframes showNotification {
+    to {
+      opacity:1;
+      left:0px;
+    }
+  }
+  #notification-area .notification.success {
+    background:#000000;
+  }
+  #notification-area .notification.error {
+    background:orangered;
+  }
+  #notification-area .notification.info {
+    background:#000000;
+  }
+
 body{
         background-color: black;
         background-image: url("../img/bg.jpg");
@@ -16,7 +59,7 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
-    padding-left: 45%;
+    padding-left: 5%;
     background-color: black;
     display: flex;
     justify-content: center;
@@ -25,8 +68,8 @@ body{
 }
 
 .loader .logow{
-     height: 10%;
-    width:10%;
+     height: 40%;
+    width:40%;
 }
 
 .loader.hidden {

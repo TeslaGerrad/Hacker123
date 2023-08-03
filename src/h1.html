@@ -3,7 +3,11 @@
 <head>
 	<title>123.0.0.1</title>
     <link rel="stylesheet" href="styles/h.css">
+    <!-- <link rel="stylesheet" href="styles/notify.css"> -->
+
 </head>
+<!-- <script src="js/notify.js" type="text/javascript">
+  </script> -->
 
 
 <script type="text/javascript">
@@ -24,7 +28,35 @@ window.addEventListener("keydown", function checkkeyPress(key){
 });
 
 /*javascript Event*/
+function notify(type,message){
+  (()=>{
+    let n = document.createElement("div");
+    let id = Math.random().toString(36).substr(2,10);
+    n.setAttribute("id",id);
+    n.classList.add("notification",type);
+    n.innerText = message;
+    document.getElementById("notification-area").appendChild(n);
+    setTimeout(()=>{
+      var notifications = document.getElementById("notification-area").getElementsByClassName("notification");
+      for(let i=0;i<notifications.length;i++){
+        if(notifications[i].getAttribute("id") == id){
+          notifications[i].remove();
+          break;
+        }
+      }
+    },5000);
+  })();
+}
 
+function notifySuccess(){
+  notify("success","This is demo success notification message");
+}
+function notifyError(){
+  notify("error","This is demo error notification message");
+}
+function notifyInfo(){
+  notify("info","Error Incorrect Password ..... Has a Ethical Hacker crack the password to unlock the Virtual-PC. Good Luck");
+}
 /* And this is for the loging button fuction*/
 
     // Create a registration system
@@ -290,10 +322,10 @@ function login() {
         }
         else {
             // error if username and password don't match
+            notifyInfo()
+            // console.log('Message---To crack the password.<1>Reboot the the Virtual-PC by clicking the power button Bellow.<2>Go to advance-option,Troubleshoot,Advance and CMD.');
 
-            alert('Error Incorrect Password...... Has a HACKER  crack the password to unlock the Virtual-PC. Good Luck' );
-            console.log('Message---To crack the password.<1>Reboot the the Virtual-PC by clicking the power button Bellow.<2>Go to advance-option,Troubleshoot,Advance and CMD.');
-        }
+            }
        
     }
 }
@@ -305,11 +337,8 @@ function login() {
 </audio>
 <div class="loader">
     <pre>
- <img src="img/windows.svg" class="logow" alt="windows logo">
+ <img src="img/winm.png" class="logow" alt="windows logo">
 <br><br>
-
-
-
 
      <img src="img/g.gif"  alt="Loading..."  width="75" height="75">   
     </pre>
@@ -338,6 +367,8 @@ function login() {
 
 </div> 
 
+<div id="notification-area">
+</div>
 
 </body>
 </html>

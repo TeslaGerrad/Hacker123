@@ -4,9 +4,9 @@ const fs = require('fs');
 
 function createWindow () {
 	const win = new BrowserWindow({
-		// fullscreen: true,
-		width: 12000,
-		height: 1000,
+		fullscreen: true,
+		// width: 12000,
+		// height: 1000,
 	    resizable: false,
 		show: false,
 		icon:"hacker123.ico",
