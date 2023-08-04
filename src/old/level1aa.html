@@ -36,7 +36,45 @@
     animation: fadeOut 0s;
     animation-fill-mode: forwards;
 }
-
+#notification-area {
+    position:fixed;
+    top:0px;
+    right:10px;
+    width:250px;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    /* justify-content:flex-end; */
+  }
+  #notification-area .notification {
+    position:relative;
+    padding:15px 10px;
+    background:#111;
+    color:greenyellow;
+    font-family:"Raleway";
+    font-size:14px;
+    font-weight:600;
+    border-radius:5px;
+    margin:5px 0px;
+    opacity:0;
+    left:20px;
+    animation:showNotification 1500ms ease-in-out forwards;
+  }
+  @keyframes showNotification {
+    to {
+      opacity:1;
+      left:0px;
+    }
+  }
+  #notification-area .notification.success {
+    background:#000000;
+  }
+  #notification-area .notification.error {
+    background:orangered;
+  }
+  #notification-area .notification.info {
+    background:#000000;
+  }
 @keyframes fadeOut {
     100% {
         opacity: 50;
@@ -122,7 +160,7 @@ img:hover{
 .menu{
     display: none;
     background: rgba(255,255,255,.50);
-    box-shadow:background: rgba(35,30,30,.50);
+    box-shadow: rgba(35,30,30,.50);
     width:15%;
     font-size: 20px;
     position: absolute;
@@ -535,6 +573,41 @@ C:\Users\Hacker123>dir
     }
 });
 /*javascript Desktop Event*/
+
+/*Main notification*/
+function notify(type,message){
+  (()=>{
+    let n = document.createElement("div");
+    let id = Math.random().toString(36).substr(2,10);
+    n.setAttribute("id",id);
+    n.classList.add("notification",type);
+    n.innerText = message;
+    document.getElementById("notification-area").appendChild(n);
+    setTimeout(()=>{
+      var notifications = document.getElementById("notification-area").getElementsByClassName("notification");
+      for(let i=0;i<notifications.length;i++){
+        if(notifications[i].getAttribute("id") == id){
+          notifications[i].remove();
+          break;
+        }
+      }
+    },5000);
+  })();
+}
+
+/*notification templetes*/
+
+function notifySuccess(){
+  notify("success","This is demo success notification message");
+}
+function notifyError(){
+  notify("error","This is demo error notification message");
+}
+function notifyInfo(){
+  notify("info",password+'  is not recognized as an internal or external command at this level, Please check the message box to use the right command');
+}
+
+
 var id ;
 function allowdrop(ev){
     ev.preventDefault();
@@ -853,8 +926,8 @@ function login() {
         }
         else {
             // error if username and password don't match
-            alert(password+'  is not recognized as an internal or external command at this level, Please check the message box to use the right command' );
-
+            // alert(password+'  is not recognized as an internal or external command at this level, Please check the message box to use the right command' );
+            notifyInfo()
         }
     }
 }

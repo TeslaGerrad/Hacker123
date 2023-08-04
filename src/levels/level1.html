@@ -34,7 +34,8 @@
 
     </div>  
     <a href="../h0.html">
-        <img src="../img/fh.png" class="shutb" width="30" height="30"/></a>
+        <img src="../img/fh.png" class="shutb" width="30" height="30"/>
+    </a>
     <img src="../img/lv.gif" class="ads1"/>
 </div>
  </div>
@@ -52,8 +53,8 @@ To find them, we have devised a test.<br><br>
 belongs to one of them.<br>
 #Has a Ethical Hacker use this PC to track them<br>
 and find out there next mition.<br><br><br>
-*There is one file on the Desktop you need to find it<br> 
-and press F2. The password to the next Level is the name of the hidden file<br></pre>
+*There is Hidden file on the Desktop you must find it<br> 
+to get the password of the next Level.The Password is the name of the Hidden file<br></pre>
 
    </center>
  </div>
@@ -75,7 +76,7 @@ C:\Users\Hacker123>dir
  Volume in drive C has no label.
  Volume Serial Number is ECC2-795E
 
- Directory of C:\Users\Hacker123
+ Directory of C:\Users\Hacker123\Desktop
 
 04/27/2020  06:03 PM    DIR          .
 04/27/2020  06:03 PM    DIR          ..
@@ -86,20 +87,20 @@ C:\Users\Hacker123>dir
 </div>
 <div class="attrib">
 <pre>
-C:\Users\Hacker123>attrib
-A                    C:\Users\Tesla\.packettracer
-A                    C:\Users\Tesla\ngrok
-A                    C:\Users\Tesla\ngrok-stable-linux-amd64.zip
+C:\Users\Hacker123\Desktop>attrib
+A                    C:\Users\Hacker123\Desktop\ZHackers.exe
+A                    C:\Users\Hacker123\Desktop\Message.exe
+A                    C:\Users\Hacker123\Desktop\Soft.rar
 </pre>
 </div>
 <div class="attrib1">
 <pre>
-C:\Users\Hacker123>attrib -h /d
+C:\Users\Hacker123\Desktop>attrib +s +r +h
 </pre>
 </div>
 <div class="attrib2">
 <pre>
-C:\Users\Hacker123>attrib -r -s -h /s /d
+C:\Users\Hacker123\Desktop>attrib -r -s -h
 </pre>
 </div>
 
@@ -126,7 +127,7 @@ C:\Users\Hacker123>attrib -r -s -h /s /d
         <br>
         <a href="level1.html"><img src="../img/lvb1.jpg" width="150" height="90"/></a>
     </div>  
-    <a href="#">
+    <a href="../h0.html">
         <img src="../img/fh.png" class="shutb" width="30" height="30"/>
         </a>
 </div>
@@ -147,6 +148,13 @@ C:\Users\Hacker123>attrib -r -s -h /s /d
        <img src="../img/meil2.gif"   width="50" height="45" id="dragelement1" ondragstart="dragstart(event)" class="ml" alt="">
             <pre class="mail"> Message </pre>
     </div>
+    <br>
+    <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+        <a href="../levels/level1c.html">
+            <img src="../img/soft.png"   width="50" height="45" id="dragelement1" ondragstart="dragstart(event)" class="rar" >
+        </a>
+           <pre class="wd">  soft </pre>
+   </div>
      <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
     </div>
      <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
@@ -316,6 +324,39 @@ C:\Users\Hacker123>attrib -r -s -h /s /d
     }
 });
 /*javascript Desktop Event*/
+/*Main notification*/
+function notify(type,message){
+  (()=>{
+    let n = document.createElement("div");
+    let id = Math.random().toString(36).substr(2,10);
+    n.setAttribute("id",id);
+    n.classList.add("notification",type);
+    n.innerText = message;
+    document.getElementById("notification-area").appendChild(n);
+    setTimeout(()=>{
+      var notifications = document.getElementById("notification-area").getElementsByClassName("notification");
+      for(let i=0;i<notifications.length;i++){
+        if(notifications[i].getAttribute("id") == id){
+          notifications[i].remove();
+          break;
+        }
+      }
+    },5000);
+  })();
+}
+
+/*notification templetes*/
+
+function notifySuccess(){
+  notify("success","This is demo success notification message");
+}
+function notifyError(){
+  notify("error","This is demo error notification message");
+}
+function notifyInfo(){
+  notify("info",'Your command is not recognized as an internal or external command at this level, Please check the message box to use the right command');
+}
+
 var id ;
 function allowdrop(ev){
     ev.preventDefault();
@@ -599,80 +640,144 @@ function login() {
         }
 
 
-        else if (password == 'attrib -h /d') {
-            document.querySelector('.attrib1').style.display = 'flex';
-            document.querySelector('.attrib2').style.display = 'none';
-            document.querySelector('.attrib').style.display = 'none';
-            document.querySelector('.dir').style.display = 'none';
-        }else if (password == ' attrib -h /d') {
-           document.querySelector('.attrib1').style.display = 'flex';
-           document.querySelector('.attrib2').style.display = 'none';
-            document.querySelector('.attrib').style.display = 'none';
-            document.querySelector('.dir').style.display = 'none';
-        }else if (password == 'attrib -s -r -h /s /d') {
-           document.querySelector('.attrib2').style.display = 'flex';
-           document.querySelector('.attrib1').style.display = 'none';
-            document.querySelector('.attrib').style.display = 'none';
-            document.querySelector('.dir').style.display = 'none';
-        }else if (password == 'attrib -r -s -h /s /d') {
-           document.querySelector('.attrib2').style.display = 'flex';
-           document.querySelector('.attrib1').style.display = 'none';
-            document.querySelector('.attrib').style.display = 'none';
-            document.querySelector('.dir').style.display = 'none';
-        }else if (password == 'attrib -h -r -s /s /d') {
-          document.querySelector('.attrib2').style.display = 'flex';
-           document.querySelector('.attrib1').style.display = 'none';
-            document.querySelector('.attrib').style.display = 'none';
-            document.querySelector('.dir').style.display = 'none';
-        }else if (password == 'attrib -r -h -s /s /d') {
-            document.querySelector('.attrib2').style.display = 'flex';
-           document.querySelector('.attrib1').style.display = 'none';
-            document.querySelector('.attrib').style.display = 'none';
-            document.querySelector('.dir').style.display = 'none';
-        }else if (password == 'attrib -s -h -r /s /d') {
-            document.querySelector('.attrib2').style.display = 'flex';
-           document.querySelector('.attrib1').style.display = 'none';
-            document.querySelector('.attrib').style.display = 'none';
-            document.querySelector('.dir').style.display = 'none';
-        }else if (password == 'attrib -h -s -r /s /d') {
-            document.querySelector('.attrib2').style.display = 'flex';
-           document.querySelector('.attrib1').style.display = 'none';
-            document.querySelector('.attrib').style.display = 'none';
-            document.querySelector('.dir').style.display = 'none';
-        }
+        // else if (password == 'attrib -h /d') {
+        //     document.querySelector('.attrib1').style.display = 'flex';
+        //     document.querySelector('.attrib2').style.display = 'none';
+        //     document.querySelector('.attrib').style.display = 'none';
+        //     document.querySelector('.dir').style.display = 'none';
+        // }else if (password == ' attrib -h /d') {
+        //    document.querySelector('.attrib1').style.display = 'flex';
+        //    document.querySelector('.attrib2').style.display = 'none';
+        //     document.querySelector('.attrib').style.display = 'none';
+        //     document.querySelector('.dir').style.display = 'none';
+        // }else if (password == 'attrib -s -r -h /s /d') {
+        //    document.querySelector('.attrib2').style.display = 'flex';
+        //    document.querySelector('.attrib1').style.display = 'none';
+        //     document.querySelector('.attrib').style.display = 'none';
+        //     document.querySelector('.dir').style.display = 'none';
+        // }else if (password == 'attrib -r -s -h /s /d') {
+        //    document.querySelector('.attrib2').style.display = 'flex';
+        //    document.querySelector('.attrib1').style.display = 'none';
+        //     document.querySelector('.attrib').style.display = 'none';
+        //     document.querySelector('.dir').style.display = 'none';
+        // }else if (password == 'attrib -h -r -s /s /d') {
+        //   document.querySelector('.attrib2').style.display = 'flex';
+        //    document.querySelector('.attrib1').style.display = 'none';
+        //     document.querySelector('.attrib').style.display = 'none';
+        //     document.querySelector('.dir').style.display = 'none';
+        // }else if (password == 'attrib -r -h -s /s /d') {
+        //     document.querySelector('.attrib2').style.display = 'flex';
+        //    document.querySelector('.attrib1').style.display = 'none';
+        //     document.querySelector('.attrib').style.display = 'none';
+        //     document.querySelector('.dir').style.display = 'none';
+        // }else if (password == 'attrib -s -h -r /s /d') {
+        //     document.querySelector('.attrib2').style.display = 'flex';
+        //    document.querySelector('.attrib1').style.display = 'none';
+        //     document.querySelector('.attrib').style.display = 'none';
+        //     document.querySelector('.dir').style.display = 'none';
+        // }else if (password == 'attrib -h -s -r /s /d') {
+        //     document.querySelector('.attrib2').style.display = 'flex';
+        //    document.querySelector('.attrib1').style.display = 'none';
+        //     document.querySelector('.attrib').style.display = 'none';
+        //     document.querySelector('.dir').style.display = 'none';
+        // }
          
+        else if (password == 'attrib +s +r +h') {
+            document.querySelector('.attrib2').style.display = 'none';
+           document.querySelector('.attrib1').style.display = 'flex';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.dir').style.display = 'none';
+            document.querySelector('.rar').style.display = 'none';
+            document.querySelector('.wd').style.display = 'none';
 
-         else if (password == 'attrib -s -r -h /d') {
+
+        }else if (password == 'attrib +r +s +h') {
+            document.querySelector('.attrib2').style.display = 'none';
+           document.querySelector('.attrib1').style.display = 'flex';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.dir').style.display = 'none';
+            document.querySelector('.rar').style.display = 'none';
+            document.querySelector('.wd').style.display = 'none';
+
+        }else if (password == 'attrib +h +r +s') {
+            document.querySelector('.attrib2').style.display = 'none';
+           document.querySelector('.attrib1').style.display = 'flex';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.dir').style.display = 'none';
+            document.querySelector('.rar').style.display = 'none';
+            document.querySelector('.wd').style.display = 'none';
+        }else if (password == 'attrib +r +h +s') {
+            document.querySelector('.attrib2').style.display = 'none';
+           document.querySelector('.attrib1').style.display = 'flex';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.dir').style.display = 'none';
+            document.querySelector('.rar').style.display = 'none';
+            document.querySelector('.wd').style.display = 'none';
+        }else if (password == 'attrib +s +h +r') {
+            document.querySelector('.attrib2').style.display = 'none';
+           document.querySelector('.attrib1').style.display = 'flex';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.dir').style.display = 'none';
+            document.querySelector('.rar').style.display = 'none';
+            document.querySelector('.wd').style.display = 'none';
+        }else if (password == 'attrib +h +s +r') {
+            document.querySelector('.attrib2').style.display = 'none';
+           document.querySelector('.attrib1').style.display = 'flex';
+            document.querySelector('.attrib').style.display = 'none';
+            document.querySelector('.dir').style.display = 'none';
+            document.querySelector('.rar').style.display = 'none';
+            document.querySelector('.wd').style.display = 'none';
+        }
+
+
+
+         else if (password == 'attrib -s -r -h') {
            document.querySelector('.attrib2').style.display = 'flex';
            document.querySelector('.attrib1').style.display = 'none';
             document.querySelector('.attrib').style.display = 'none';
             document.querySelector('.dir').style.display = 'none';
-        }else if (password == 'attrib -r -s -h /d') {
+            document.querySelector('.rar').style.display = 'flex';
+            document.querySelector('.wd').style.display = 'flex';
+
+
+        }else if (password == 'attrib -r -s -h') {
            document.querySelector('.attrib2').style.display = 'flex';
            document.querySelector('.attrib1').style.display = 'none';
             document.querySelector('.attrib').style.display = 'none';
             document.querySelector('.dir').style.display = 'none';
-        }else if (password == 'attrib -h -r -s /d') {
+            document.querySelector('.rar').style.display = 'flex';
+            document.querySelector('.wd').style.display = 'flex';
+        }else if (password == 'attrib -h -r -s') {
           document.querySelector('.attrib2').style.display = 'flex';
            document.querySelector('.attrib1').style.display = 'none';
             document.querySelector('.attrib').style.display = 'none';
             document.querySelector('.dir').style.display = 'none';
-        }else if (password == 'attrib -r -h -s /d') {
+            document.querySelector('.rar').style.display = 'flex';
+            document.querySelector('.wd').style.display = 'flex';
+        }else if (password == 'attrib -r -h -s') {
             document.querySelector('.attrib2').style.display = 'flex';
            document.querySelector('.attrib1').style.display = 'none';
             document.querySelector('.attrib').style.display = 'none';
             document.querySelector('.dir').style.display = 'none';
-        }else if (password == 'attrib -s -h -r /d') {
+            document.querySelector('.rar').style.display = 'flex';
+            document.querySelector('.wd').style.display = 'flex';
+        }else if (password == 'attrib -s -h -r') {
             document.querySelector('.attrib2').style.display = 'flex';
            document.querySelector('.attrib1').style.display = 'none';
             document.querySelector('.attrib').style.display = 'none';
             document.querySelector('.dir').style.display = 'none';
-        }else if (password == 'attrib -h -s -r /d') {
+            document.querySelector('.rar').style.display = 'flex';
+            document.querySelector('.wd').style.display = 'flex';
+        }else if (password == 'attrib -h -s -r') {
             document.querySelector('.attrib2').style.display = 'flex';
            document.querySelector('.attrib1').style.display = 'none';
             document.querySelector('.attrib').style.display = 'none';
             document.querySelector('.dir').style.display = 'none';
+            document.querySelector('.rar').style.display = 'flex';
+            document.querySelector('.wd').style.display = 'flex';
         }
+
+        
 
         else if (password == 'net ') {
             alert(password+'  is not necessary at this moment.' );
@@ -773,7 +878,8 @@ function login() {
         }
         else {
             // error if username and password don't match
-            alert(password+'  is not recognized as an internal or external command at this level, Please check the message box to use the right command' );
+            // alert(password+'  is not recognized as an internal or external command at this level, Please check the message box to use the right command' );
+            notifyInfo()
         }
 
     }
@@ -797,6 +903,7 @@ document.querySelector('.close').addEventListener('click',
 
 
 
-
+<div id="notification-area">
+</div>
 </body>
 </html>
