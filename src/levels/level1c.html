@@ -43,6 +43,39 @@
     }
 });
 /*javascript Desktop Event*/
+/*Main notification*/
+function notify(type,message){
+  (()=>{
+    let n = document.createElement("div");
+    let id = Math.random().toString(36).substr(2,10);
+    n.setAttribute("id",id);
+    n.classList.add("notification",type);
+    n.innerText = message;
+    document.getElementById("notification-area").appendChild(n);
+    setTimeout(()=>{
+      var notifications = document.getElementById("notification-area").getElementsByClassName("notification");
+      for(let i=0;i<notifications.length;i++){
+        if(notifications[i].getAttribute("id") == id){
+          notifications[i].remove();
+          break;
+        }
+      }
+    },5000);
+  })();
+}
+
+/*notification templetes*/
+
+function notifySuccess(){
+  notify("success","This is demo success notification message");
+}
+function notifyError(){
+  notify("error","This is demo error notification message");
+}
+function notifyInfo(){
+  notify("info",' Access  Denued ');
+}
+
 var id ;
 function allowdrop(ev){
     ev.preventDefault();
@@ -83,7 +116,7 @@ function login() {
     // loop through all the user pbjects and confrim if the username and password are correct
    for(var i = 0; i < objPeople.length; i++) {
         if(password == 'Soft.rar') {
-            alert('  Access  Denued  ' );
+            location.replace("../levels/level1e.html")
              // For true change of page
             break
         }
@@ -338,7 +371,9 @@ function login() {
 
         else {
             // error if username and password don't match
-            alert('  Access  Denued  ' );
+            // alert('  Access  Denued  ' );
+            notifyInfo()
+
 
         }
     }
@@ -361,7 +396,8 @@ document.querySelector('.close').addEventListener('click',
 
 
 
-
+<div id="notification-area">
+</div>
 
 </body>
 </html>

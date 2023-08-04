@@ -9,7 +9,7 @@
     height:100vh;
     display:flex;
     flex-direction:column;
-    justify-content:flex-end;
+    /* justify-content:flex-end; */
   }
   #notification-area .notification {
     position:relative;
@@ -65,6 +65,10 @@ body{
     justify-content: center;
     align-items: center;
     overflow: hidden;
+}
+.a3{
+  cursor: pointer;
+padding: auto;
 }
 
 .loader .logow{

@@ -19,6 +19,52 @@ body{
     justify-content: center;
     align-items: center;
 }
+.rar {
+  display: none;
+}
+.wd{
+  display: none;
+
+}
+#notification-area {
+  position:fixed;
+  top:0px;
+  right:10px;
+  width:250px;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  /* justify-content:flex-end; */
+}
+#notification-area .notification {
+  position:relative;
+  padding:15px 10px;
+  background:#111;
+  color:greenyellow;
+  font-family:"Raleway";
+  font-size:14px;
+  font-weight:600;
+  border-radius:5px;
+  margin:5px 0px;
+  opacity:0;
+  left:20px;
+  animation:showNotification 500ms ease-in-out forwards;
+}
+@keyframes showNotification {
+  to {
+    opacity:1;
+    left:0px;
+  }
+}
+#notification-area .notification.success {
+  background:#000000;
+}
+#notification-area .notification.error {
+  background:orangered;
+}
+#notification-area .notification.info {
+  background:#000000;
+}
 
 .loader > img {
     width:1250px;
@@ -43,6 +89,7 @@ body{
     
     
 }
+
 .c2, .c3, .c4, .c5{
 
     margin-left: 30px;
@@ -74,7 +121,7 @@ body{
 .close, .close1, .close2, .close3{
     position: absolute;
     top: 0;
-    right: 20px;
+    right: 20%;
     font-size: 42px;
     transform: rotate(45deg);
     cursor: pointer;
@@ -194,7 +241,7 @@ a{
     font-size: 15;
     position: relative;
     margin-top: 0%;
-    right: 10%;
+    right: 16%;
    overflow-x: auto;
    overflow-y:scroll;
 }
