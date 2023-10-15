@@ -1,43 +1,33 @@
-body{
-        background-image: url("../img/startup3.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
+      /* Set HTML and Body to cover the entire screen */
+        html, body {
+            color:green;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Hide scrollbars */
+        }	
 .op{
     margin-top: 45px;
     margin-left: 60px;
+    z-index: -10;
 }
+
 .c{
     margin-left:40px;
     margin-top: 50px;
 }
-.cmd{
-    background-color: black;
-    width: 700px;
-    height: 600px;
-    color: green;
-    font-size: 15px;
-    position: absolute;
-    bottom: 40px;
-    left: 49%;
-}
-.cmd-input{
-    border: none;
-    outline: none;
-}
+
 .title{
     background-color:#333333;
     width: 700px;
     height: 30px;           
 }
-.bt{
-    background-color: #333333;
+.close3{
     margin-left: 380px;
-    border-color: #333333;
-    border-left-color: #333333;
+
     
 }
-.bt:hover{
+.close3:hover{
     background-color: red;
 }
 input{
@@ -47,7 +37,7 @@ input{
     font-size: 13px;
 }
 span{
-    color:white ;
+    color:black ;
     margin-left: 5px;
     width: 50px;
     font-style: all;
@@ -59,8 +49,8 @@ span{
 .B1{
     background-color:black;
     color: green;
-    top: 0;
-    right: 20px;
+    top: 10;
+    right: 50px;
     cursor: pointer;
     position: absolute;
     border-color: green;
@@ -92,7 +82,7 @@ span{
 }
 .close{
     position: absolute;
-    top: 0;
+    top: 5px;
     right: 20px;
     font-size: 42px;
     transform: rotate(45deg);
@@ -106,10 +96,49 @@ span{
 .home{
    border-radius: 10px;
     width: 90%;
-    height: 620px;
+    height: 580px;
     margin-top: 10px;
     margin-left: 70px; 
-    
+    z-index: -1;
     overflow-x: auto;
     overflow-y:scroll;
 }
+
+.cmd-input{
+    border: none;
+    outline: none;
+     background-color:black;
+     color:green;
+}
+
+.cmd{
+    background-color:black;
+    color:green;
+     height: 400px;
+     position: absolute;
+     top: 50%; /* Center the CMD section vertically */
+     left: 50%; /* Center the CMD section horizontally */
+     transform: translate(-50%, -50%); /* Centering trick */
+     /* Add other styling properties as needed */
+     /* ... */
+     display: none;
+     padding-left:10px;
+
+}
+
+
+.user-input{
+      color:white;}
+
+
+        /* Style for the context menu */
+        .context-menu {
+            position: absolute;
+            display: none;
+            background-color: #333;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            z-index: 9999;
+            text-decoration:none;
+        }

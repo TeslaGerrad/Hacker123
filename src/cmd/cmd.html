@@ -4,204 +4,320 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>123.0.0.1</title>
-    <link rel="stylesheet" href="../styles/cmd.css">
+    <link rel="stylesheet" href="cmd.css">
+    <style>
+
+       *{
+         color:green;
+}
+        /* Add any additional CSS styles here if needed */
+        .command-output {
+            color:green;
+            font-family: monospace;
+        }
+        .title{
+            position: sticky;
+              top: 0;
+            background-color: #454141;
+            padding: 10px;
+            z-index: 2; /* Optional: Set a higher z-index to make it appear above other content */
+            }
+
+        /* Style the input container to be to the right of the prompt */
+        #cmd-input-container {
+            color:green;
+            /* display: flex; */
+            align-items: center;
+            /* background-color: red; */
+            margin-left: -5px;
+        }
+        #draggable-cmd{
+         height: 400px; /* Set a fixed height for the scrollable area */
+         overflow: auto; /* Enable scrolling for this div */
+        }
+        /* Style the prompt */
+        
+        .user-input {
+            flex: 0 0 auto; /* Prevent the prompt from growing */
+            color:green;
+            font-size: 13px;
+            font-family:  monospace;
+        }
+        .CmdTitle{
+            font-family:  'Courier New', Courier, monospace;
+            color: #fff;
+            font-size: 14px;
+
+
+        }
+
+        /* Style the input field */
+        .cmd-input {
+        color:green;
+            flex-grow: 1; /* Allow the input field to expand */
+        }
+    </style>
 </head>
-
-
-
 <body>
     <div class="wina">
-<div class="win">
-    <div class="close">+</div>
-    
-    <div class="winc">
-        <div class="home" >
-    
-    <center>
-     <br><br><br>
-
-     <img src="../img/cm1.jpg" class="p1"/>
-     <img src="../img/cm2.jpg" class="p2"/>
-     <img src="../img/cm3.jpg" class="p3"/>
-     <img src="../img/cm4.jpg" class="p4"/>
-       
-
-     </center>
-    
-     
- </div> 
-</div>
- </div>
-</div>
+        <div class="win">
+            <div class="close">+</div>
+            <div class="winc">
+                <div class="home">
+                    <center>
+                        <br><br><br>
+                        <img src="../img/cm1.jpg" class="p1"/>
+                        <img src="../img/cm2.jpg" class="p2"/>
+                        <img src="../img/cm3.jpg" class="p3"/>
+                        <img src="../img/cm4.jpg" class="p4"/>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
     <button class="B1" id="help">HELP</button>
+    <div class="screen">
+        <a href="../h5.html"><img src="../img/s9.png" class="c" /><br></a>
+        <div class="op"> 
+            <a href=""><img src="../img/s1.png" onclick="alert('Option Denied!')" class="a" /></a>
+            <a href=""><img src="../img/s3.png" class="b" /></a><br>
+            <a href=""><img src="../img/s2.png" onclick="alert('Option Denied!')" class="a" /></a>
+            <a href=""><img src="../img/s4.png" onclick="alert('Option Denied!')" class="b" /></a>
+        </div>
 
-<div class="screen">
-    
-    <a href="../h5.html"><img src="../img/s9.png"  class="c" /><br></a>
-<div class="op"> 
-    <a href=""><img src="../img/s1.png" onclick="alert('Option Denied!')"  class="a" /></a>   <a href=""><img src="../img/s3.png"   class="b" /></a><br>
-    <a href=""><img src="../img/s2.png" onclick="alert('Option Denied!')"  class="a" /></a>   <a href=""><img src="../img/s4.png"  onclick="alert('Option Denied!')"  class="b" /></a>
-</div>
-<div  class="cmd">
-<div class="title"><img src="../img/cmdlg.png" class="m" width="25" height="20" ><span>C:\Windows\system32\cmd.exe</span>
-   <a href="../h5.html"> <button class="bt"><img src="../img/exit.png"/></button></a></div>
+        <!-- // Hacker123 PowerShell Div start here -->
+        <div class="cmd" id="draggable-cmd">
+            <div class="title">
+                <img src="../img/cmdlg.png" class="m" width="25" height="20" >
+                <span class="CmdTitle">Hacker123 PowerShell</span>
+                <a href="../h5.html"><button class="bt"></button></a>
+            </div>
+            <p>Hacker123 PowerShell [Version 0.1.2]<br>
+             Open Source Project. (c) 2023 Biztecitsolution.com</p>
+            <div id="output-container"></div> <!-- Container to display command output -->
+            <div id="cmd-input-container">
+                <span class="user-input">C:\Windows\System32> </span>
+                <input class="cmd-input" type="text" size="75" autofocus id="user-command" onkeydown="executeCommand(event)">
+            </div>
+        </div>
+        <!-- Hacker123 PowerShell Div ends here -->
 
-    <p>Microsoft Windows [Version 10.0.10586]<br>
-(c) 2015 Microsoft Corporation. All rights reserved.</p>
-    <div id="cmd"> C:\Windows\system32> <input class="cmd-input" type="text" size="60" id="password"/></div>
+        <!-- Context menu for the navigation bar -->
+        <div class="context-menu" id="context-menu">
+            <ul>
+                <li><a href="#">Restore</a></li>
+                <li><a href="#">Move</a></li>
+                <li><a href="#">Size</a></li>
+                <li><a href="#">Minimize</a></li>
+                <li><a href="#">Maximize</a></li>
+                <li><a href="#">Close</a></li>
+                <li><a href="#">Edit</a></li>
+                <li><a href="#">Defaults</a></li>
+                <li><a href="#">Properties</a></li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript">
 
-</div>
+        var cmd = document.getElementById('draggable-cmd'); // Get the CMD section element
+        var isDragging = false;
+        var offsetX, offsetY;
 
-</div>
+        // Function to start dragging
+        cmd.addEventListener('mousedown', function(e) {
+            isDragging = true;
+            offsetX = e.clientX - cmd.getBoundingClientRect().left;
+            offsetY = e.clientY - cmd.getBoundingClientRect().top;
+            cmd.style.zIndex = '9999'; // Bring CMD section to the front
+            e.preventDefault(); // Prevent text selection during dragging
+        });
 
+        // Function to stop dragging
+        document.addEventListener('mouseup', function() {
+            isDragging = false;
+            cmd.style.zIndex = ''; // Restore default z-index
+        });
 
-<script type="text/javascript">
-    window.addEventListener("keydown", function checkkeyPress(key){
-    if(key.keyCode == "13"){
-         login()
-    }
-});
-    // Create a cmd code system
+        // Function to move the CMD section while dragging
+        document.addEventListener('mousemove', function(e) {
+            if (isDragging) {
+                cmd.style.left = e.clientX - offsetX + 'px';
+                cmd.style.top = e.clientY - offsetY + 'px';
+            }
+        });
 
-var objPeople = [
-    {
-        
-        password: 'net'
-    }
+        // Function to execute user commands
+        function executeCommand(event) {
+            if (event.key === "Enter") {
+                const commandInput = document.getElementById('user-command');
+                const userInput = commandInput.value.trim(); // Remove leading/trailing spaces
+                const outputContainer = document.getElementById('output-container');
+                
+                // Create a new output container for the command
+                const newOutputContainer = document.createElement('div');
+                newOutputContainer.className = 'command-output-container';
 
-]
+                // Create a new output div for the command
+                const newOutput = document.createElement('div');
+                newOutput.className = 'command-output';
+                const maindirectory = "C:\\Windows\\System32> ";
+                // const userChangePass1 = `Type a password for the user:<pre> <input class="cmd-input" type="password" size="75" autofocus id="user-command" ></pre>`;
+                // const userChangePass2 = `Retype the password to confirm:<pre> <input class="cmd-input" type="password" size="75" autofocus id="user-command" onkeydown="executeCommand(event)"></pre>`;
+// All Powershell Commands stated here
+var net = `
+<pre>
+The syntax of this command is:<br><br>
 
-// CMD functionality
-function login() {
-    
-    // retreive data from password and store in password variable
-    var net = 'net'
-    var password = document.getElementById('password').value
+NET<br>
+    [ ACCOUNTS | COMPUTER | CONFIG | CONTINUE | FILE | GROUP | HELP |<br>
+      HELPMSG | LOCALGROUP | PAUSE | SESSION | SHARE | START |<br>
+      STATISTICS | STOP | TIME | USE | USER | VIEW ]
+</pre>
+   `; 
 
-    // loop through all the user pbjects and confrim if the username and password are correct
-   for(var i = 0; i < objPeople.length; i++) {
-        // check to 
-        if(password == 'net') {
-            location.replace("cmd1.html")
-            // For true change of page
-            break
-        } else if (password == 'net ') {
-            location.replace("cmd1.html")
-        }else if (password == ' net') {
-            location.replace("cmd1.html")
-        }else if (password == 'Net') {
-            location.replace("cmd1.html")
-        }else if (password == 'Net ') {
-            location.replace("cmd1.html")
+var netUser = `
+<pre>
+User accounts for \\DESKTOP-127001
+
+---------------------------------------------------------<br>
+Administrator               DefaultAccount<br>
+Guest                       Hacker123<br>
+The command completed successfully.
+</pre>
+   `; 
+
+   var netUserPass = `
+<pre>
+Type a password for the user:
+Retype the password to confirm:
+
+System error 5 has occurred.
+Access is denied.
+</pre>
+   `; 
+
+   var netUserEmptyPass = `
+<pre>
+System error 5 has occurred.
+
+Access is denied.
+</pre>
+   `; 
+
+var netUserNewPass = `
+<pre>
+Password for Hacker123 is: JNqey_4_eTrAyPMUKI2w7r1jRPwB3NIj4JBwIwg46o4
+
+command completed successfully.
+</pre>
+   `;    
+
+var userContent = `
+<pre>
+User name                    Hacker123
+Full Name
+Comment
+User's comment
+Country/region code          000 (System Default)
+Account active               Yes
+Account expires              Never
+
+Password last set            12/2/2019 9:57:40 PM
+Password expires             Never
+Password changeable          12/2/2019 9:57:40 PM
+Password required            No
+User may change password     Yes
+
+Workstations allowed         All
+Logon script
+User profile
+Home directory
+Last logon                   12/5/2019 8:06:17 PM
+
+Logon hours allowed          All
+
+Local Group Memberships      *Administrators
+Global Group memberships     *None
+The command completed successfully.
+</pre>
+   `;
+// All Powershell Commands started here
+                if (userInput === "") {
+                    // If the user input is empty, just add a new empty line
+                    newOutput.innerHTML = maindirectory;
+                } else if (userInput.toLowerCase() === "ipconfig") {
+                    // Implement the 'ipconfig' command
+                    newOutput.innerHTML = maindirectory + userInput + "<br>" + "IP Configuration for your system...";
+                    // You can add more details here if needed
+                }else if (userInput.toLowerCase() === "net") {
+                    // Implement the 'ipconfig' command
+                    newOutput.innerHTML = maindirectory + userInput + "<br>" + net;
+                    // You can add more details here if needed
+                }else if (userInput.toLowerCase() === "net user hacker123") {
+                    // Implement the 'ipconfig' command
+                    newOutput.innerHTML = maindirectory + userInput + "<br>" + userContent;
+                }else if (userInput.toLowerCase() === "net user hacker123 *") {
+                    // Implement the 'ipconfig' command
+                    newOutput.innerHTML = maindirectory + userInput + "<br>" + netUserPass;
+                }
+                else if (userInput.toLowerCase() === "net user hacker123 /random") {
+                    // Implement the 'ipconfig' command
+                    newOutput.innerHTML = maindirectory + userInput + "<br>" + netUserNewPass;
+                }
+                else if (userInput.toLowerCase() === "net user hacker123 \"\"") {
+                    // Implement the 'ipconfig' command
+                    newOutput.innerHTML = maindirectory + userInput + "<br>" + netUserEmptyPass;
+                }
+                else if (userInput.toLowerCase() === "net user") {
+                    // Implement the 'ipconfig' command
+                    newOutput.innerHTML = maindirectory + userInput + "<br>" + netUser;
+                    // You can add more details here if needed
+                } 
+                else if (userInput.toLowerCase() === "ls" || userInput.toLowerCase() === "dir") {
+                    // Implement 'ls' or 'dir' command (list files in a directory)
+                    // For simplicity, let's assume you're listing some example files
+                    const fileList = ["file1.txt", "file2.txt", "folder1", "folder2"];
+                    newOutput.innerHTML= maindirectory + userInput + "<br>" + fileList.join('\n');
+                } else {
+                    // Command not recognized
+                    //newOutput.textContent
+                    newOutput.innerHTML = maindirectory + userInput + "<br>" + userInput + " is not recognized as an internal or external command,<br>operable program or batch file.";
+                }
+
+                // Append the output to the new output container
+                newOutputContainer.appendChild(newOutput);
+                
+                // Append the new output container to the main output container
+                outputContainer.appendChild(newOutputContainer);
+
+                // Clear the input field
+                commandInput.value = '';
+                
+                // Automatically scroll to the bottom of the .draggable-cmd div
+                const draggableCmd = document.getElementById('draggable-cmd');
+                    draggableCmd.scrollTop = draggableCmd.scrollHeight;
+                                
+                // Move the input field to the bottom of the output
+                // outputContainer.appendChild(commandInput);
+                
+                // Autofocus on the input field for the next command
+                commandInput.focus();
+            }
         }
 
-        else if (password == 'Net user') {
-            location.replace("cmd2.html")
-        }else if (password == 'Net  user') {
-            location.replace("cmd2.html")
-        }else if (password == 'Net  user ') {
-            location.replace("cmd2.html")
-        } else if (password == 'Net user ') {
-            location.replace("cmd2.html")
-        }else if (password == 'net  user') {
-            location.replace("cmd2.html")
-        }else if (password == 'net  user ') {
-            location.replace("cmd2.html")
-        }else if (password == 'net user ') {
-            location.replace("cmd2.html")
-        }else if (password == 'net user') {
-            location.replace("cmd2.html")
-        }
+        // JavaScript code to show the context menu when the right mouse button is clicked
+        const contextMenu = document.getElementById('context-menu');
 
-        else if (password == ' cls') {
-            location.replace("cmd.html")
-        }else if (password == 'cls ') {
-            location.replace("cmd.html")
-        }else if (password == 'Cls') {
-            location.replace("cmd.html")
-        }else if (password == 'cls') {
-            location.replace("cmd.html")
-        }
-        else if (password == 'net user Hacker123') {
-            location.replace("cmd3.html")
-        }
+        document.addEventListener('contextmenu', function (event) {
+            event.preventDefault();
+            contextMenu.style.display = 'block';
+            contextMenu.style.left = (event.clientX + 'px');
+            contextMenu.style.top = (event.clientY + 'px');
+        });
 
-      
-          else if (password == 'net user Hacker123 *') {
-            location.replace("cmd4a.html")
-        } else if (password == 'Net user Hacker123 *') {
-            location.replace("cmd4a.html")
-        } else if (password == 'net user Hacker123 * ') {
-            location.replace("cmd4a.html")
-        } else if (password == 'Net user Hacker123 * ') {
-            location.replace("cmd4a.html")
-        }else if (password == 'net user Hacker123  *') {
-            location.replace("cmd4a.html")
-        } else if (password == 'Net user Hacker123  *') {
-            location.replace("cmd4a.html")
-        } else if (password == 'net user Hacker123  * ') {
-            location.replace("cmd4a.html")
-        } else if (password == 'Net user Hacker123  * ') {
-            location.replace("cmd4a.html")
-        }
-
-         else if (password == 'net user Hacker123 /random') {
-            location.replace("cmd5.html")
-        }else if (password == 'Net user Hacker123 /random') {
-            location.replace("cmd5.html")
-        }else if (password == 'net user Hacker123 /random ') {
-            location.replace("cmd5.html")
-        }else if (password == 'Net user Hacker123 /random ') {
-            location.replace("cmd5.html")
-        } else if (password == 'net user Hacker123  /random') {
-            location.replace("cmd5.html")
-        }else if (password == 'Net user Hacker123  /random') {
-            location.replace("cmd5.html")
-        }else if (password == 'net user Hacker123  /random ') {
-            location.replace("cmd5.html")
-        }else if (password == 'Net user Hacker123  /random ') {
-            location.replace("cmd5.html")
-        }
-
-
-        else if (password == 'net user Hacker123 ""') {
-            location.replace("cmd6.html")
-        }else if (password == 'Net user Hacker123 ""') {
-            location.replace("cmd6.html")
-        }else if (password == 'Net user Hacker123 "" ') {
-            location.replace("cmd6.html")
-        }else if (password == 'net user Hacker123 "" ') {
-            location.replace("cmd6.html")
-        }else if (password == 'net user Hacker123  ""') {
-            location.replace("cmd6.html")
-        }else if (password == 'Net user Hacker123  ""') {
-            location.replace("cmd6.html")
-        }else if (password == 'Net user Hacker123  "" ') {
-            location.replace("cmd6.html")
-        }else if (password == 'net user Hacker123  "" ') {
-            location.replace("cmd6.html")
-        }
-        else {
-            // error if username and password don't match
-             alert("Happy to see u here.....Now to crack the Password add a command or code that will show the password of Virtual-Pc. If u need help! visit ---Zambian Hackers--- YouTube channel.Good Luck");
-            alert(password+'  is not recognized as an internal or external command, operable program or batch file.' );
-
-        }
-    }
-}
-document.getElementById('help').addEventListener('click', 
-    function(){
-        document.querySelector('.wina').style.display = 'flex';
-       
-        
-    });
-document.querySelector('.close').addEventListener('click',
-    function(){
-        document.querySelector('.wina').style.display = 'none';
-    
-       
-        
-    });
-</script>
+        document.addEventListener('click', function () {
+            contextMenu.style.display = 'none';
+        });
+    </script>
 </body>
 </html>

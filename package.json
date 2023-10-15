@@ -1,6 +1,6 @@
 {
   "name": "hacker123",
-  "version": "1.0.0",
+  "version": "0.1.2",
   "description": "A software Game for Ethical Hackers and programmers",
   "main": "main.js",
   "scripts": {

@@ -231,27 +231,12 @@ a{
   width: 40px;
   height: 40px;
 }
-.cmd{
+/* .cmd{
   display: none;
-    background-color: black;
-    width:51%;
-    height:60%;
-    color: green;
-    margin-bottom: 200px;
-    font-size: 15;
-    position: relative;
-    margin-top: 0%;
-    right: 16%;
-   overflow-x: auto;
-   overflow-y:scroll;
-}
 
-.title{
-    background-color:#333333;
-    width: 698px;
-    height: 34px;  
-    color:green;         
-}
+} */
+
+
 .bt{
     background-color: #333333;
     margin-left: 380px;
@@ -263,22 +248,17 @@ a{
 .bt:hover{
     background-color: red;
 }
-input{
-    background:transparent;
-    color: green;
-    border:transparent; 
-    font-size: 13px;
-}
+
 .m{
     margin-top: 4px;
    margin-left: 15px;
 }
-span{
+/* span{
     color:greeng;
     margin-left: 5px;
     width: 50px;
     font-style: all;
-}
+} */
 .tl{
     color:white ;
     margin-left: 5px;
