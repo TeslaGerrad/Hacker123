@@ -1,6 +1,6 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
-const path = require('path');
-const fs = require('fs');
+import { app, BrowserWindow, ipcMain } from 'electron';
+import { join } from 'path';
+import { writeFileSync } from 'fs';
 
 function createWindow () {
 	const win = new BrowserWindow({
@@ -11,7 +11,7 @@ function createWindow () {
 		show: false,
 		icon:"hacker123.ico",
 		webPreferences: {
-			preload: path.join(__dirname, 'preload.js')
+			preload: join(__dirname, 'preload.js')
 		}
 	});
 	win.on("ready-to-show", win.show);
@@ -19,8 +19,8 @@ function createWindow () {
 	ipcMain.handle('create-file', (req, data) => {
 		if (!data || !data.title || !data.content) return false;
 
-		const filePath = path.join(__dirname, 'notes', `${data.title}.txt`);
-		fs.writeFileSync(filePath, data.content);
+		const filePath = join(__dirname, 'notes', `${data.title}.txt`);
+		writeFileSync(filePath, data.content);
 
 		return { success: true, filePath };
 	})
