@@ -78,101 +78,109 @@ cmdBoxH.addEventListener("mousemove", continueHighlight);
 
 // Function to start text highlighting
 function startHighlight(e) {
-    startOffset = getOffset(e);
+  startOffset = getOffset(e);
 }
 
 // Function to continue text highlighting
 function continueHighlight(e) {
-    if (startOffset !== undefined) {
-        endOffset = getOffset(e);
-        updateSelection(startOffset, endOffset);
-    }
+  if (startOffset !== undefined) {
+    endOffset = getOffset(e);
+    updateSelection(startOffset, endOffset);
+  }
 }
 
 // Function to end text highlighting
 function endHighlight(e) {
-    endOffset = getOffset(e);
-    updateSelection(startOffset, endOffset);
-    startOffset = undefined;
+  endOffset = getOffset(e);
+  updateSelection(startOffset, endOffset);
+  startOffset = undefined;
 }
 
 // Function to get the offset of the mouse click within the command box
 function getOffset(e) {
-    var range = document.createRange();
-    range.selectNodeContents(cmdBoxH);
-    var currentOffset = range.startOffset;
-    var node = document.elementFromPoint(e.clientX, e.clientY);
-    if (node === cmdBoxH) {
-        var sel = window.getSelection();
-        if (sel.rangeCount > 0) {
-            currentOffset = sel.getRangeAt(0).startOffset;
-        }
+  var range = document.createRange();
+  range.selectNodeContents(cmdBoxH);
+  var currentOffset = range.startOffset;
+  var node = document.elementFromPoint(e.clientX, e.clientY);
+  if (node === cmdBoxH) {
+    var sel = window.getSelection();
+    if (sel.rangeCount > 0) {
+      currentOffset = sel.getRangeAt(0).startOffset;
     }
-    return currentOffset;
+  }
+  return currentOffset;
 }
 
 // Function to update the selection range and apply styling to the selected text
 function updateSelection(start, end) {
-    var selection = window.getSelection();
-    var range = document.createRange();
-    range.setStart(cmdBoxH.firstChild, Math.min(start, end));
-    range.setEnd(cmdBoxH.firstChild, Math.max(start, end));
-    selection.removeAllRanges();
-    selection.addRange(range);
+  var selection = window.getSelection();
+  var range = document.createRange();
+  range.setStart(cmdBoxH.firstChild, Math.min(start, end));
+  range.setEnd(cmdBoxH.firstChild, Math.max(start, end));
+  selection.removeAllRanges();
+  selection.addRange(range);
 }
 //CMD TEXT HIGHLIGHT ENDS HERE
 
-// Function to execute user commands
-function executeCommand(event) {
-  if (event.key === "Enter") {
-    const commandInput = document.getElementById("user-command");
-    const userInput = commandInput.value.trim(); // Remove leading/trailing spaces
-    const outputContainer = document.getElementById("output-container");
+//CMD TO STORE COMMAND HISTORY STARTS HERE
+// Store user inputs
+let commandHistory = [];
+let currentIndex = -1;
 
-    // Create a new output container for the command
+// Function to execute command
+function executeCommand(event) {
+  const commandInput = document.getElementById("user-command");
+  const userInput = commandInput.value.trim(); // Remove leading/trailing spaces
+  const outputContainer = document.getElementById("output-container");
+
+  if (event.key === "Enter") {
+    // Execute command and add to output
     const newOutputContainer = document.createElement("div");
     newOutputContainer.className = "command-output-container";
-
-    // Create a new output div for the command
     const newOutput = document.createElement("div");
     newOutput.className = "command-output";
     const maindirectory = "C:\\Windows\\System32> ";
-    // const userChangePass1 = `Type a password for the user:<pre> <input class="cmd-input" type="password" size="75" autofocus id="user-command" ></pre>`;
-    // const userChangePass2 = `Retype the password to confirm:<pre> <input class="cmd-input" type="password" size="75" autofocus id="user-command" onkeydown="executeCommand(event)"></pre>`;
-    // All Powershell Commands stated here
 
-    var dir = `
-<pre>
-Volume in drive C has no label.
-Volume Serial Number is ECC2-795E
+    // Handle special commands
+    if (userInput === "") {
+      newOutput.innerHTML = maindirectory;
+    } else {
+      handleCommand(userInput, newOutput, maindirectory);
+    }
 
-Directory of C:\Users\Hacker123\Desktop
+    // Append the output to the new output container
+    newOutputContainer.appendChild(newOutput);
+    // Append the new output container to the main output container
+    outputContainer.appendChild(newOutputContainer);
 
-04/27/2020  06:03 PM    DIR          .
-04/27/2020  06:03 PM    DIR          ..
-04/30/2020  12:03 AM    DIR          ZHackers.exe
-04/28/2020  04:22 AM    DIR          Message.exe
-</pre>
-   `;
+    // Add command to history
+    commandHistory.unshift(userInput);
+    currentIndex = -1;
 
-    var attrib = `
-<pre>
-A                    C:\Users\Hacker123\Desktop\ZHackers.exe
-A                    C:\Users\Hacker123\Desktop\Message.exe
-A                    C:\Users\Hacker123\Desktop\Soft.rar
-</pre>
-   `;
+    // Clear input field
+    commandInput.value = "";
+  } else if (event.key === "ArrowUp") {
+    // Navigate command history - move to previous command
+    currentIndex = Math.min(currentIndex + 1, commandHistory.length - 1);
+    commandInput.value = commandHistory[currentIndex] || "";
+  } else if (event.key === "ArrowDown") {
+    // Navigate command history - move to next command
+    currentIndex = Math.max(currentIndex - 1, -1);
+    commandInput.value = commandHistory[currentIndex] || "";
+  }
+}
+//CMD TO STORE COMMAND HISORY ENDS HERE
 
-    var attrib1 = `
-<pre>
-A                    C:\Users\Hacker123\Desktop\ZHackers.exe
-A                    C:\Users\Hacker123\Desktop\Message.exe
-A                    C:\Users\Hacker123\Desktop\Soft.rar
-</pre>
-   `;
+// Event listener for input field
+document
+  .getElementById("user-command")
+  .addEventListener("keydown", executeCommand);
 
-    var net = `
-<pre>
+// Function to handle user commands
+const commands = {
+  ipconfig: "IP Configuration for your system...",
+  net: `
+        <pre>
 The syntax of this command is:<br><br>
 
 NET<br>
@@ -180,9 +188,28 @@ NET<br>
       HELPMSG | LOCALGROUP | PAUSE | SESSION | SHARE | START |<br>
       STATISTICS | STOP | TIME | USE | USER | VIEW ]
 </pre>
-   `;
+       `,
+  dir: `
+        <pre>
+Volume in drive C has no label.
+Volume Serial Number is ECC2-795E
 
-    var netUser = `
+Directory of C:\\Users\\Hacker123\\Desktop
+
+04/27/2020  06:03 PM    DIR          .
+04/27/2020  06:03 PM    DIR          ..
+04/30/2020  12:03 AM    DIR          ZHackers.exe
+04/28/2020  04:22 AM    DIR          Message.exe
+</pre>
+       `,
+  attrib: `
+<pre>
+A                    C:\\Users\\Hacker123\\Desktop\\ZHackers.exe
+A                    C:\\Users\\Hacker123\\Desktop\\Message.exe
+A                    C:\\Users\\Hacker123\\Desktop\\Soft.rar
+</pre>
+   `,
+  "net user": `
 <pre>
 User accounts for \\DESKTOP-127001
 
@@ -191,9 +218,8 @@ Administrator               DefaultAccount<br>
 Guest                       Hacker123<br>
 The command completed successfully.
 </pre>
-   `;
-
-    var netUserPass = `
+   `,
+  netUserPass: `
 <pre>
 Type a password for the user:
 Retype the password to confirm:
@@ -201,25 +227,22 @@ Retype the password to confirm:
 System error 5 has occurred.
 Access is denied.
 </pre>
-   `;
-
-    var netUserEmptyPass = `
+   `,
+  netUserEmptyPass: `
 <pre>
 System error 5 has occurred.
 
 Access is denied.
 </pre>
-   `;
-
-    var netUserNewPass = `
+   `,
+  netUserNewPass: `
 <pre>
 Password for Hacker123 is: JNqey_4_eTrAyPMUKI2w7r1jRPwB3NIj4JBwIwg46o4
 
 command completed successfully.
 </pre>
-   `;
-
-    var userContent = `
+   `,
+  userContent: `
 <pre>
 User name                    Hacker123
 Full Name
@@ -247,11 +270,21 @@ Local Group Memberships      *Administrators
 Global Group memberships     *None
 The command completed successfully.
 </pre>
-   `;
-    // All Powershell Commands started here
-    if (userInput === "") {
-      // If the user input is empty, just add a new empty line
-      newOutput.innerHTML = maindirectory;
+   `,
+  // Add more commands here...
+};
+
+// Function to handle commands
+function handleCommand(userInput, newOutput, maindirectory) {
+  // Handle special commands
+  if (userInput === "") {
+    // If the user input is empty, just add a new empty line
+    newOutput.innerHTML = maindirectory;
+  } else {
+    // Check if the command exists in the commands object
+    const commandOutput = commands[userInput.toLowerCase()];
+    if (commandOutput) {
+      newOutput.innerHTML = maindirectory + userInput + "<br>" + commandOutput;
     } else if (userInput.toLowerCase() === "ipconfig") {
       // Implement the 'ipconfig' command
       newOutput.innerHTML =
@@ -261,123 +294,34 @@ The command completed successfully.
         "IP Configuration for your system...";
       // You can add more details here if needed
     } else if (userInput.toLowerCase() === "net") {
-      // Implement the 'ipconfig' command
-      newOutput.innerHTML = maindirectory + userInput + "<br>" + net;
+      // Implement the 'net' command
+      newOutput.innerHTML =
+        maindirectory + userInput + "<br>" + commands["net"];
       // You can add more details here if needed
     } else if (userInput.toLowerCase() === "dir") {
-      // Implement the 'ipconfig' command
-      newOutput.innerHTML = maindirectory + userInput + "<br>" + dir;
+      // Implement the 'dir' command
+      newOutput.innerHTML =
+        maindirectory + userInput + "<br>" + commands["dir"];
       // You can add more details here if needed
     } else if (userInput.toLowerCase() === "attrib") {
-      // Implement the 'ipconfig' command
-      newOutput.innerHTML = maindirectory + userInput + "<br>" + attrib;
+      // Implement the 'attrib' command
+      newOutput.innerHTML =
+        maindirectory + userInput + "<br>" + commands["attrib"];
       // You can add more details here if needed
     } else if (userInput.toLowerCase() === "attrib +s +r +h soft.rar") {
-      // Implement the 'ipconfig' command
+      // Implement the 'attrib +s +r +h soft.rar' command
       newOutput.innerHTML = maindirectory + userInput + "<br>";
       document.querySelector(".rar").style.display = "none";
       document.querySelector(".wd").style.display = "none";
-
       // You can add more details here if needed
     } else if (userInput.toLowerCase() === "attrib +r +s +h soft.rar") {
-      // Implement the 'ipconfig' command
+      // Implement the 'attrib +r +s +h soft.rar' command
       newOutput.innerHTML = maindirectory + userInput + "<br>";
       document.querySelector(".rar").style.display = "none";
       document.querySelector(".wd").style.display = "none";
-
       // You can add more details here if needed
-    } else if (userInput.toLowerCase() === "attrib +h +r +s soft.rar") {
-      // Implement the 'ipconfig' command
-      newOutput.innerHTML = maindirectory + userInput + "<br>";
-      document.querySelector(".rar").style.display = "none";
-      document.querySelector(".wd").style.display = "none";
-
-      // You can add more details here if needed
-    } else if (userInput.toLowerCase() === "attrib +r +h +s soft.rar") {
-      // Implement the 'ipconfig' command
-      newOutput.innerHTML = maindirectory + userInput + "<br>";
-      document.querySelector(".rar").style.display = "none";
-      document.querySelector(".wd").style.display = "none";
-
-      // You can add more details here if needed
-    } else if (userInput.toLowerCase() === "attrib +h +s +r soft.rar") {
-      // Implement the 'ipconfig' command
-      newOutput.innerHTML = maindirectory + userInput + "<br>";
-      document.querySelector(".rar").style.display = "none";
-      document.querySelector(".wd").style.display = "none";
-
-      // You can add more details here if needed
-    } else if (userInput.toLowerCase() === "attrib +s +h +r soft.rar") {
-      // Implement the 'ipconfig' command
-      newOutput.innerHTML = maindirectory + userInput + "<br>";
-      document.querySelector(".rar").style.display = "none";
-      document.querySelector(".wd").style.display = "none";
-
-      // You can add more details here if needed
-    } else if (userInput.toLowerCase() === "attrib -s -r -h soft.rar") {
-      // Implement the 'ipconfig' command
-      newOutput.innerHTML = maindirectory + userInput + "<br>";
-      document.querySelector(".rar").style.display = "flex";
-      document.querySelector(".wd").style.display = "flex";
-
-      // You can add more details here if needed
-    } else if (userInput.toLowerCase() === "attrib -h -r -s soft.rar") {
-      // Implement the 'ipconfig' command
-      newOutput.innerHTML = maindirectory + userInput + "<br>";
-      document.querySelector(".rar").style.display = "flex";
-      document.querySelector(".wd").style.display = "flex";
-
-      // You can add more details here if needed
-    } else if (userInput.toLowerCase() === "attrib -r -h -s oft.rar") {
-      // Implement the 'ipconfig' command
-      newOutput.innerHTML = maindirectory + userInput + "<br>";
-      document.querySelector(".rar").style.display = "flex";
-      document.querySelector(".wd").style.display = "flex";
-
-      // You can add more details here if needed
-    } else if (userInput.toLowerCase() === "attrib -s -h -r soft.rar") {
-      // Implement the 'ipconfig' command
-      newOutput.innerHTML = maindirectory + userInput + "<br>";
-      document.querySelector(".rar").style.display = "flex";
-      document.querySelector(".wd").style.display = "flex";
-
-      // You can add more details here if needed
-    } else if (userInput.toLowerCase() === "attrib -h -s -r soft.rar") {
-      // Implement the 'ipconfig' command
-      newOutput.innerHTML = maindirectory + userInput + "<br>";
-      document.querySelector(".rar").style.display = "flex";
-      document.querySelector(".wd").style.display = "flex";
-
-      // You can add more details here if needed
-    } else if (userInput.toLowerCase() === "net user hacker123") {
-      // Implement the 'ipconfig' command
-      newOutput.innerHTML = maindirectory + userInput + "<br>" + userContent;
-    } else if (userInput.toLowerCase() === "net user hacker123 *") {
-      // Implement the 'ipconfig' command
-      newOutput.innerHTML = maindirectory + userInput + "<br>" + netUserPass;
-    } else if (userInput.toLowerCase() === "net user hacker123 /random") {
-      // Implement the 'ipconfig' command
-      newOutput.innerHTML = maindirectory + userInput + "<br>" + netUserNewPass;
-    } else if (userInput.toLowerCase() === 'net user hacker123 ""') {
-      // Implement the 'ipconfig' command
-      newOutput.innerHTML =
-        maindirectory + userInput + "<br>" + netUserEmptyPass;
-    } else if (userInput.toLowerCase() === "net user") {
-      // Implement the 'ipconfig' command
-      newOutput.innerHTML = maindirectory + userInput + "<br>" + netUser;
-      // You can add more details here if needed
-    } else if (
-      userInput.toLowerCase() === "ls" ||
-      userInput.toLowerCase() === "dir"
-    ) {
-      // Implement 'ls' or 'dir' command (list files in a directory)
-      // For simplicity, let's assume you're listing some example files
-      const fileList = ["file1.txt", "file2.txt", "folder1", "folder2"];
-      newOutput.innerHTML =
-        maindirectory + userInput + "<br>" + fileList.join("\n");
     } else {
       // Command not recognized
-      //newOutput.textContent
       newOutput.innerHTML =
         maindirectory +
         userInput +
@@ -385,27 +329,9 @@ The command completed successfully.
         userInput +
         " is not recognized as an internal or external command,<br>operable program or batch file.";
     }
-
-    // Append the output to the new output container
-    newOutputContainer.appendChild(newOutput);
-
-    // Append the new output container to the main output container
-    outputContainer.appendChild(newOutputContainer);
-
-    // Clear the input field
-    commandInput.value = "";
-
-    // Automatically scroll to the bottom of the .draggable-cmd div
-    const draggableCmd = document.getElementById("draggable-cmd");
-    draggableCmd.scrollTop = draggableCmd.scrollHeight;
-
-    // Move the input field to the bottom of the output
-    // outputContainer.appendChild(commandInput);
-
-    // Autofocus on the input field for the next command
-    commandInput.focus();
   }
 }
+//CMD COMMANDS ENDS HERE
 
 // JavaScript code to show the context menu when the right mouse button is clicked
 const contextMenu = document.getElementById("context-menu");
