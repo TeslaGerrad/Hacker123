@@ -60,6 +60,74 @@ function stopDrag(e) {
 }
 
 //cmd drag function ends here
+//CMD TEXT HIGHLIGHT STARTS HERE
+// Select the command box
+var cmdBox = document.getElementById("draggable-cmd");
+
+// Variables to track mouse position
+var startOffset, endOffset;
+
+// Event listener for mouse down on the command box
+cmdBox.addEventListener("mousedown", startHighlight);
+
+// Event listener for mouse up on the command box
+cmdBox.addEventListener("mouseup", endHighlight);
+
+// Event listener for mouse move on the command box
+cmdBox.addEventListener("mousemove", continueHighlight);
+
+document.addEventListener("keydown", function(event) {
+    if ((event.ctrlKey || event.metaKey) && event.key === 'a') {
+        event.preventDefault(); // Prevent the default behavior of Ctrl+A (Cmd+A)
+        selectAllText();
+    }
+});
+
+// Function to start text highlighting
+function startHighlight(e) {
+    startOffset = getOffset(e);
+}
+
+// Function to continue text highlighting
+function continueHighlight(e) {
+    if (startOffset !== undefined) {
+        endOffset = getOffset(e);
+        updateSelection(startOffset, endOffset);
+    }
+}
+
+// Function to end text highlighting
+function endHighlight(e) {
+    endOffset = getOffset(e);
+    updateSelection(startOffset, endOffset);
+    startOffset = undefined;
+}
+
+// Function to get the offset of the mouse click within the command box
+function getOffset(e) {
+    var range = document.createRange();
+    range.selectNodeContents(cmdBox);
+    var currentOffset = range.startOffset;
+    var node = document.elementFromPoint(e.clientX, e.clientY);
+    if (node === cmdBox) {
+        var sel = window.getSelection();
+        if (sel.rangeCount > 0) {
+            currentOffset = sel.getRangeAt(0).startOffset;
+        }
+    }
+    return currentOffset;
+}
+
+// Function to update the selection range and apply styling to the selected text
+function updateSelection(start, end) {
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.setStart(cmdBox.firstChild, Math.min(start, end));
+    range.setEnd(cmdBox.firstChild, Math.max(start, end));
+    selection.removeAllRanges();
+    selection.addRange(range);
+}
+//CMD TEXT HIGHLIGHT ENDS HERE
 
 // Function to execute user commands
 function executeCommand(event) {
