@@ -58,8 +58,8 @@ function stopDrag(e) {
   document.removeEventListener("mousemove", drag);
   document.removeEventListener("mouseup", stopDrag);
 }
-
 //cmd drag function ends here
+
 //CMD TEXT HIGHLIGHT STARTS HERE
 // Select the command box
 var cmdBoxH = document.getElementById("draggable-cmd");
@@ -170,6 +170,24 @@ function executeCommand(event) {
   }
 }
 //CMD TO STORE COMMAND HISORY ENDS HERE
+//CLEAR THE TERMINAL
+// Event listener for keydown event
+document.addEventListener("keydown", function(event) {
+    if (event.keyCode === 76 && event.ctrlKey) {
+        clearTerminal();
+    }
+});
+
+// Function to clear the terminal
+function clearTerminal() {
+    const outputContainer = document.getElementById("output-container");
+    // Clear the content of the output container
+    outputContainer.innerHTML = "";
+    // Reset command history and index
+    commandHistory = [];
+    currentIndex = -1;
+}
+
 
 // Event listener for input field
 document
