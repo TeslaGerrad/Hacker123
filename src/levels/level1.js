@@ -62,19 +62,19 @@ function stopDrag(e) {
 //cmd drag function ends here
 //CMD TEXT HIGHLIGHT STARTS HERE
 // Select the command box
-var cmdBox = document.getElementById("draggable-cmd");
+var cmdBoxH = document.getElementById("draggable-cmd");
 
 // Variables to track mouse position
 var startOffset, endOffset;
 
 // Event listener for mouse down on the command box
-cmdBox.addEventListener("mousedown", startHighlight);
+cmdBoxH.addEventListener("mousedown", startHighlight);
 
 // Event listener for mouse up on the command box
-cmdBox.addEventListener("mouseup", endHighlight);
+cmdBoxH.addEventListener("mouseup", endHighlight);
 
 // Event listener for mouse move on the command box
-cmdBox.addEventListener("mousemove", continueHighlight);
+cmdBoxH.addEventListener("mousemove", continueHighlight);
 
 // Function to start text highlighting
 function startHighlight(e) {
@@ -99,10 +99,10 @@ function endHighlight(e) {
 // Function to get the offset of the mouse click within the command box
 function getOffset(e) {
     var range = document.createRange();
-    range.selectNodeContents(cmdBox);
+    range.selectNodeContents(cmdBoxH);
     var currentOffset = range.startOffset;
     var node = document.elementFromPoint(e.clientX, e.clientY);
-    if (node === cmdBox) {
+    if (node === cmdBoxH) {
         var sel = window.getSelection();
         if (sel.rangeCount > 0) {
             currentOffset = sel.getRangeAt(0).startOffset;
@@ -115,8 +115,8 @@ function getOffset(e) {
 function updateSelection(start, end) {
     var selection = window.getSelection();
     var range = document.createRange();
-    range.setStart(cmdBox.firstChild, Math.min(start, end));
-    range.setEnd(cmdBox.firstChild, Math.max(start, end));
+    range.setStart(cmdBoxH.firstChild, Math.min(start, end));
+    range.setEnd(cmdBoxH.firstChild, Math.max(start, end));
     selection.removeAllRanges();
     selection.addRange(range);
 }
