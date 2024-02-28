@@ -113,7 +113,7 @@ span{
 
 .cmd{
     background-color:black;
-    color:green;
+    color:white;
      height: 400px;
      position: absolute;
      top: 50%; /* Center the CMD section vertically */
@@ -142,3 +142,4 @@ span{
             z-index: 9999;
             text-decoration:none;
         }
+    
