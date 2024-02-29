@@ -1,4 +1,17 @@
 .command-output {
+    user-select: text; /* Allow text selection */
+  }
+  .command-output-container {
+    position: relative;
+  }
+  
+  .command-output-container button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  
+.command-output {
     color: green;
     font-family: monospace;
 }

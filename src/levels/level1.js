@@ -61,65 +61,85 @@ function stopDrag(e) {
 //cmd drag function ends here
 
 //CMD TEXT HIGHLIGHT STARTS HERE
-// Select the command box
-var cmdBoxH = document.getElementById("draggable-cmd");
+// Select the new output container
+var newOutputContainer = document.getElementById("output-container");
 
 // Variables to track mouse position
-var startOffset, endOffset;
+var startX, startY, endX, endY;
+var isHighlighting = false;
 
-// Event listener for mouse down on the command box
-cmdBoxH.addEventListener("mousedown", startHighlight);
+// Event listener for mouse down on the new output container
+newOutputContainer.addEventListener("mousedown", startHighlight);
 
-// Event listener for mouse up on the command box
-cmdBoxH.addEventListener("mouseup", endHighlight);
+// Event listener for mouse up on the new output container
+newOutputContainer.addEventListener("mouseup", toggleHighlight);
 
-// Event listener for mouse move on the command box
-cmdBoxH.addEventListener("mousemove", continueHighlight);
+// Event listener for mouse move on the new output container
+newOutputContainer.addEventListener("mousemove", continueHighlight);
 
 // Function to start text highlighting
 function startHighlight(e) {
-  startOffset = getOffset(e);
+  e.stopPropagation(); // Stop event propagation
+  isHighlighting = true;
+  startX = e.clientX;
+  startY = e.clientY;
 }
 
 // Function to continue text highlighting
 function continueHighlight(e) {
-  if (startOffset !== undefined) {
-    endOffset = getOffset(e);
-    updateSelection(startOffset, endOffset);
+  e.stopPropagation(); // Stop event propagation
+  if (isHighlighting) {
+    endX = e.clientX;
+    endY = e.clientY;
+    updateSelection(startX, startY, endX, endY);
   }
 }
 
-// Function to end text highlighting
-function endHighlight(e) {
-  endOffset = getOffset(e);
-  updateSelection(startOffset, endOffset);
-  startOffset = undefined;
-}
-
-// Function to get the offset of the mouse click within the command box
-function getOffset(e) {
-  var range = document.createRange();
-  range.selectNodeContents(cmdBoxH);
-  var currentOffset = range.startOffset;
-  var node = document.elementFromPoint(e.clientX, e.clientY);
-  if (node === cmdBoxH) {
-    var sel = window.getSelection();
-    if (sel.rangeCount > 0) {
-      currentOffset = sel.getRangeAt(0).startOffset;
-    }
-  }
-  return currentOffset;
+// Function to end or toggle text highlighting
+function toggleHighlight(e) {
+  e.stopPropagation(); // Stop event propagation
+  isHighlighting = !isHighlighting;
 }
 
 // Function to update the selection range and apply styling to the selected text
-function updateSelection(start, end) {
+function updateSelection(x1, y1, x2, y2) {
   var selection = window.getSelection();
   var range = document.createRange();
-  range.setStart(cmdBoxH.firstChild, Math.min(start, end));
-  range.setEnd(cmdBoxH.firstChild, Math.max(start, end));
+
+  // Determine start and end points based on mouse movement direction
+  var startX = Math.min(x1, x2);
+  var startY = Math.min(y1, y2);
+  var endX = Math.max(x1, x2);
+  var endY = Math.max(y1, y2);
+
+  // Find the elements at the start and end positions
+  var startNode = document.elementFromPoint(startX, startY);
+  var endNode = document.elementFromPoint(endX, endY);
+
+  // Set the range start and end points
+  range.setStart(startNode, getOffset(startNode, startX, startY));
+  range.setEnd(endNode, getOffset(endNode, endX, endY));
+
   selection.removeAllRanges();
   selection.addRange(range);
 }
+
+// Function to get the offset of the mouse click within an element
+function getOffset(node, x, y) {
+  var range = document.createRange();
+  range.selectNodeContents(node);
+  var clientRects = range.getClientRects();
+
+  for (var i = 0; i < clientRects.length; i++) {
+    var rect = clientRects[i];
+    if (x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom) {
+      return i;
+    }
+  }
+
+  return 0;
+}
+
 //CMD TEXT HIGHLIGHT ENDS HERE
 
 //CMD TO STORE COMMAND HISTORY STARTS HERE
