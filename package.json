@@ -14,7 +14,8 @@
   "license": "MIT",
   "devDependencies": {
     "electron": "^24.3.1",
-    "electron-builder": "^23.6.0"
+    "electron-builder": "^23.6.0",
+    "electron-reload": "^2.0.0-alpha.1"
   },
   "build": {
     "appId": "com.biztec.app",
@@ -27,7 +28,7 @@
       "installerIcon": "hacker123.ico",
       "uninstallerIcon": "hacker123.ico",
       "license": "LICENSE",
-      "runAfterFinish": true,     
+      "runAfterFinish": true,
       "oneClick": false
     }
   }

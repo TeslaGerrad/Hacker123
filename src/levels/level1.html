@@ -1,112 +1,58 @@
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
- <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>123.0.0.1</title>
-    <link rel="stylesheet" href="../styles/levels.css">
-    <link rel="stylesheet" href="cmd.css">
+    <link rel="stylesheet" href="../styles/levels.css" />
+    <link rel="stylesheet" href="level1.css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="stylesheet" href="cmd.css" />    
+  </head>
 
+  <body>
+    <audio autoplay loop>
+      <source src="../audio/b.mp3" type="audio/mpeg" />
+    </audio>
 
-    <style>
-
-        /* *{
-          color:green;
- } */
-         /* Add any additional CSS styles here if needed */
-         .command-output {
-             color:green;
-             font-family: monospace;
-         }
-         .title{
-            position: sticky;
-              top: 0;
-            background-color: #454141;
-            padding: 10px;
-            z-index: 2; /* Optional: Set a higher z-index to make it appear above other content */
-             }
- 
-         /* Style the input container to be to the right of the prompt */
-         #cmd-input-container {
-             color:green;
-             /* display: flex; */
-             align-items: center;
-             /* background-color: red; */
-             margin-left: -5px;
-         }
-         #draggable-cmd{
-          height: 400px; /* Set a fixed height for the scrollable area */
-          overflow: auto; /* Enable scrolling for this div */
-         }
-         /* Style the prompt */
-         
-         .user-input {
-             flex: 0 0 auto; /* Prevent the prompt from growing */
-             color:green;
-             font-size: 13px;
-             font-family:  monospace;
-         }
-         .CmdTitle{
-             font-family:  'Courier New', Courier, monospace;
-             color: #fff;
-             font-size: 14px;
- 
- 
-         }
- 
-         /* Style the input field */
-         .cmd-input {
-         color:green;
-             flex-grow: 1; /* Allow the input field to expand */
-         }
-     </style>
- </head>
-
-<body>
-
-<audio autoplay loop>
-    <source src="../audio/b.mp3" type="audio/mpeg">
-</audio>
-
-<!-- loading MAP -->
-<div class="loader">
+    <!-- loading MAP -->
+     <div class="loader">
 <img src="../img/wel.gif" alt="Loading..." />
 </div>
 
-<!-- selet your level -->
-<div class="level">
-                <div class="levels">
-                            <div class="close1">+</div>
-                            
-                            <div class="winc">
-                                <a href="level1.html"></a> 
-                                <img src="../img/vb.jpg" width="150" height="90" class="lvl">
-                                <a href="level1c.html"><img src="../img/lvl.png" width="150" height="90"></a> 
-                                <img src="../img/lvl1.png" width="130" height="110">
-                                <br>
-                                <img src="../img/lock.png" width="130" height="110">
-                                <img src="../img/lock.png" width="130" height="110">
-                                <img src="../img/lock.png" width="130" height="110"><br>
-                                <img src="../img/lock.png" width="130" height="110">
-                                <img src="../img/lock.png" width="130" height="110">
-                                <img src="../img/lock.png" width="130" height="110">
+    <!-- selet your level -->
+    <div class="level">
+      <div class="levels">
+        <div class="close1">+</div>
 
-                            </div>  
-                            <a href="../h0.html">
-                                <img src="../img/fh.png" class="shutb" width="30" height="30"/>
-                            </a>
-                            <img src="../img/lv.gif" class="ads1"/>
-                </div>
- </div>
+        <div class="winc">
+          <a href="level1.html"></a>
+          <img src="../img/vb.jpg" width="150" height="90" class="lvl" />
+          <a href="level1c.html"
+            ><img src="../img/lvl.png" width="150" height="90"
+          /></a>
+          <img src="../img/lvl1.png" width="130" height="110" />
+          <br />
+          <img src="../img/lock.png" width="130" height="110" />
+          <img src="../img/lock.png" width="130" height="110" />
+          <img src="../img/lock.png" width="130" height="110" /><br />
+          <img src="../img/lock.png" width="130" height="110" />
+          <img src="../img/lock.png" width="130" height="110" />
+          <img src="../img/lock.png" width="130" height="110" />
+        </div>
+        <a href="../h0.html">
+          <img src="../img/fh.png" class="shutb" width="30" height="30" />
+        </a>
+        <img src="../img/lv.gif" class="ads1" />
+      </div>
+    </div>
 
-  <!-- Message Box -->
- <div class="note">
-                <div class="close2">+</div>
-                <img src="../img/meil2.gif" class="noteml">
-                <center>
-                    <br><br>HacKer123<br><br>
-                    <pre class="word">Welcome to hacker123 if you are here it means<br>
+    <!-- Message Box -->
+    <div class="note">
+      <div class="close2">+</div>
+      <img src="../img/meil2.gif" class="noteml" />
+      <center>
+        <br /><br />HacKer123<br /><br />
+        <pre class="word">Welcome to hacker123 if you are here it means<br>
                 that you have bypassed this Virtul-PC security system.<br>
                 We are looking for highly  intelligent Ethical Hackers.<br>
                 To find them, we have devised a test.<br><br>
@@ -116,736 +62,402 @@
                 and find out there next mition.<br><br><br>
                 *There is Hidden file on the Desktop you must find it<br> 
                 to get the password of the next Level.The Password is the name of the Hidden file<br></pre>
+      </center>
+    </div>
 
-                </center>
- </div>
+    <!-- COMMAND LINE PROMETE -->
+    <!-- // Hacker123 PowerShell Div start here -->
+    <div class="cmd" id="draggable-cmd">
+      <div class="title" id="cmd-header">
+        <img src="../img/cmdlg.png" class="m" width="25" height="20" />
+        <span class="CmdTitle">Hacker123 PowerShell</span>
+        <button class="bt"></button>
+      </div>
+      <p>
+        Hacker123 PowerShell [Version 0.1.2] Open Source Project. (c) 2024
+        Biztecitsolution.com
+      </p>
+      <div id="output-container"></div>
+      <!-- Container to display command output -->
+      <div id="cmd-input-container">
+        <span class="user-input">C:\Windows\System32> </span>
+        <input
+          class="cmd-input"
+          type="text"
+          size="75"
+          autofocus
+          id="user-command"
+          onkeydown="executeCommand(event)"
+        />
+      </div>
+    </div>
+    <!-- Hacker123 PowerShell Div ends here -->
 
+    <!-- Context menu for the navigation bar -->
+    <div class="context-menu" id="context-menu">
+      <ul>
+        <li><a href="#">Restore</a></li>
+        <li><a href="#">Move</a></li>
+        <li><a href="#">Size</a></li>
+        <li><a href="#">Minimize</a></li>
+        <li><a href="#">Maximize</a></li>
+        <li><a href="#">Close</a></li>
+        <li><a href="#">Edit</a></li>
+        <li><a href="#">Defaults</a></li>
+        <li><a href="#">Properties</a></li>
+      </ul>
+    </div>
 
+    <div class="wina">
+      <div class="win">
+        <div class="close">+</div>
 
-                                                               <!-- COMMAND LINE PROMETE -->
-        <!-- // Hacker123 PowerShell Div start here -->
-        <div class="cmd" id="draggable-cmd">
-            <div class="title">
-                <img src="../img/cmdlg.png" class="m" width="25" height="20" >
-                <span class="CmdTitle">Hacker123 PowerShell</span>
-                <button class="bt"> </button>
-            </div>
-            <p>Hacker123 PowerShell [Version 0.1.2]
-             Open Source Project. (c) 2023 Biztecitsolution.com
-            </p>
-            <div id="output-container"></div> <!-- Container to display command output -->
-            <div id="cmd-input-container">
-                <span class="user-input">C:\Windows\System32> </span>
-                 <input class="cmd-input" type="text" size="75" autofocus id="user-command" onkeydown="executeCommand(event)">
-            </div>
+        <div class="winc">
+          <img src="../img/d1.jpg" width="150" height="90" />
+          <img src="../img/d2.png" width="150" height="90" />
+          <br />
+          <img src="../img/d4.png" width="150" height="90" />
+          <img src="../img/d3.png" width="150" height="90" />
+          <br />
+          <a href="level1.html"
+            ><img src="../img/lvb1.jpg" width="150" height="90"
+          /></a>
         </div>
-        <!-- Hacker123 PowerShell Div ends here -->
-
-
-                <!-- Context menu for the navigation bar -->
-                <div class="context-menu" id="context-menu">
-                    <ul>
-                        <li><a href="#">Restore</a></li>
-                        <li><a href="#">Move</a></li>
-                        <li><a href="#">Size</a></li>
-                        <li><a href="#">Minimize</a></li>
-                        <li><a href="#">Maximize</a></li>
-                        <li><a href="#">Close</a></li>
-                        <li><a href="#">Edit</a></li>
-                        <li><a href="#">Defaults</a></li>
-                        <li><a href="#">Properties</a></li>
-                    </ul>
-                </div>
-
-
-
-
-<div class="wina">
-<div class="win">
-    <div class="close">+</div>
-    
-    <div class="winc">
-        <img src="../img/d1.jpg" width="150" height="90"/>
-        <img src="../img/d2.png" width="150" height="90"/>
-        <br>
-        <img src="../img/d4.png" width="150" height="90"/>
-        <img src="../img/d3.png" width="150" height="90"/>
-        <br>
-        <a href="level1.html"><img src="../img/lvb1.jpg" width="150" height="90"/></a>
-    </div>  
-    <a href="../h0.html">
-        <img src="../img/fh.png" class="shutb" width="30" height="30"/>
+        <a href="../h0.html">
+          <img src="../img/fh.png" class="shutb" width="30" height="30" />
         </a>
-</div>
- </div>
-
-<div class="desktop">
-
-     <div class="a">
-    <div class="dragzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-       <img src="../img/logob.png"   width="50" height="48" id="dragelement" ondragstart="dragstart(event)" class="tra" alt="">
-        <pre>  trash </pre>
-    </div>
-    <div class="dragzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-        <a href="Rc.html"> <img src="../img/logo1.ico"   width="50" height="45" id="dragelement1" ondragstart="dragstart(event)" alt="">
-            <pre> ZHackers </pre></a>
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-       <img src="../img/meil2.gif"   width="50" height="45" id="dragelement1" ondragstart="dragstart(event)" class="ml" alt="">
-            <pre class="mail"> Message </pre>
-    </div>
-    <br>
-    <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-        <a href="../levels/level1c.html">
-            <img src="../img/soft.png"   width="50" height="45" id="dragelement1" ondragstart="dragstart(event)" class="rar" >
-        </a>
-           <pre class="wd">  soft </pre>
-   </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-    
-</div>
-
- <div class="b">
-    <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-      <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-  
-    
-</div>
-
- <div class="c">
-    <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-   
-    
-    
-</div>
-    
-
- <div class="d">
-    <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-      <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-    
-    
-</div>
-
- <div class="e">
-    <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-      <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+      </div>
     </div>
 
-    
-</div>
+    <div class="desktop">
+      <div class="a">
+        <div
+          class="dragzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        >
+          <img
+            src="../img/logob.png"
+            width="50"
+            height="48"
+            id="dragelement"
+            ondragstart="dragstart(event)"
+            class="tra"
+            alt=""
+          />
+          <pre>  trash </pre>
+        </div>
+        <div
+          class="dragzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        >
+          <a href="Rc.html">
+            <img
+              src="../img/logo1.ico"
+              width="50"
+              height="45"
+              id="dragelement1"
+              ondragstart="dragstart(event)"
+              alt=""
+            />
+            <pre> ZHackers </pre>
+          </a>
+        </div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        >
+          <img
+            src="../img/meil2.gif"
+            width="50"
+            height="45"
+            id="dragelement1"
+            ondragstart="dragstart(event)"
+            class="ml"
+            alt=""
+          />
+          <pre class="mail"> Message </pre>
+        </div>
+        <br />
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        >
+          <a href="../levels/level1c.html">
+            <img
+              src="../img/soft.png"
+              width="50"
+              height="45"
+              id="dragelement1"
+              ondragstart="dragstart(event)"
+              class="rar"
+            />
+          </a>
+          <pre class="wd">  soft </pre>
+        </div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+      </div>
 
- <div class="f">
-    <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+      <div class="b">
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+      </div>
+
+      <div class="c">
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+      </div>
+
+      <div class="d">
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+      </div>
+
+      <div class="e">
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+      </div>
+
+      <div class="f">
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+      </div>
+
+      <div class="g">
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+      </div>
+
+      <div class="h">
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+      </div>
+
+      <div class="i">
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+        <div
+          class="dropzone"
+          ondragover="allowdrop(event)"
+          ondrop="drop(event)"
+        ></div>
+      </div>
     </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+    <div class="taskb">
+      <center>
+        <img
+          src="../img/winm.png"
+          width="20"
+          height="20"
+          class="c1"
+          id="winc"
+        />
+
+        <img src="../img/sch.png" width="20" height="20" class="c2" />
+
+        <img src="../img/cmdlg.png" width="20" height="20" class="c3" />
+
+        <img src="../img/store.png" width="20" height="20" class="c4" />
+
+        <img src="../img/wins.jpg" width="20" height="20" class="c5" />
+      </center>
     </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-       <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-    
-    
-</div>
 
- <div class="g">
-    <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-      <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-    
-    
-</div>
+    <script src="level1.js"></script>
 
- <div class="h">
-    <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-       <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-    
-    
-</div>
-
- <div class="i">
-    <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-     <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-      <div class="dropzone" ondragover="allowdrop(event)" ondrop="drop(event)">
-    </div>
-    
-    
-</div>
-
-
-</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
-<div class="taskb"> 
-<center>
-    <img src="../img/winm.png" width="20" height="20" class="c1" id="winc">
-
-    <img src="../img/sch.png" width="20" height="20" class="c2">
-    
-    <img src="../img/cmdlg.png" width="20" height="20" class="c3">
-    
-    <img src="../img/store.png" width="20" height="20" class="c4">
-    
-    <img src="../img/wins.jpg" width="20" height="20" class="c5">
-</center>
-
-
-</div>
-
-  
-
- 
-<script type="text/javascript">
-
-// Hacker123 PowerShell
-
-var cmd = document.getElementById('draggable-cmd'); // Get the CMD section element
-        var isDragging = false;
-        var offsetX, offsetY;
-
-        // Function to start dragging
-        cmd.addEventListener('mousedown', function(e) {
-            isDragging = true;
-            offsetX = e.clientX - cmd.getBoundingClientRect().left;
-            offsetY = e.clientY - cmd.getBoundingClientRect().top;
-            cmd.style.zIndex = '9999'; // Bring CMD section to the front
-            e.preventDefault(); // Prevent text selection during dragging
-        });
-
-        // Function to stop dragging
-        document.addEventListener('mouseup', function() {
-            isDragging = false;
-            cmd.style.zIndex = ''; // Restore default z-index
-        });
-
-        // Function to move the CMD section while dragging
-        document.addEventListener('mousemove', function(e) {
-            if (isDragging) {
-                cmd.style.left = e.clientX - offsetX + 'px';
-                cmd.style.top = e.clientY - offsetY + 'px';
-            }
-        });
-
-        // Function to execute user commands
-        function executeCommand(event) {
-            if (event.key === "Enter") {
-                const commandInput = document.getElementById('user-command');
-                const userInput = commandInput.value.trim(); // Remove leading/trailing spaces
-                const outputContainer = document.getElementById('output-container');
-                
-                // Create a new output container for the command
-                const newOutputContainer = document.createElement('div');
-                newOutputContainer.className = 'command-output-container';
-
-                // Create a new output div for the command
-                const newOutput = document.createElement('div');
-                newOutput.className = 'command-output';
-                const maindirectory = "C:\\Windows\\System32> ";
-                // const userChangePass1 = `Type a password for the user:<pre> <input class="cmd-input" type="password" size="75" autofocus id="user-command" ></pre>`;
-                // const userChangePass2 = `Retype the password to confirm:<pre> <input class="cmd-input" type="password" size="75" autofocus id="user-command" onkeydown="executeCommand(event)"></pre>`;
-// All Powershell Commands stated here
-
-var dir = `
-<pre>
-Volume in drive C has no label.
-Volume Serial Number is ECC2-795E
-
-Directory of C:\Users\Hacker123\Desktop
-
-04/27/2020  06:03 PM    DIR          .
-04/27/2020  06:03 PM    DIR          ..
-04/30/2020  12:03 AM    DIR          ZHackers.exe
-04/28/2020  04:22 AM    DIR          Message.exe
-</pre>
-   `; 
-
-   var attrib = `
-<pre>
-A                    C:\Users\Hacker123\Desktop\ZHackers.exe
-A                    C:\Users\Hacker123\Desktop\Message.exe
-A                    C:\Users\Hacker123\Desktop\Soft.rar
-</pre>
-   `; 
-
-   var attrib1 = `
-<pre>
-A                    C:\Users\Hacker123\Desktop\ZHackers.exe
-A                    C:\Users\Hacker123\Desktop\Message.exe
-A                    C:\Users\Hacker123\Desktop\Soft.rar
-</pre>
-   `;   
-
-var net = `
-<pre>
-The syntax of this command is:<br><br>
-
-NET<br>
-    [ ACCOUNTS | COMPUTER | CONFIG | CONTINUE | FILE | GROUP | HELP |<br>
-      HELPMSG | LOCALGROUP | PAUSE | SESSION | SHARE | START |<br>
-      STATISTICS | STOP | TIME | USE | USER | VIEW ]
-</pre>
-   `; 
-
-var netUser = `
-<pre>
-User accounts for \\DESKTOP-127001
-
----------------------------------------------------------<br>
-Administrator               DefaultAccount<br>
-Guest                       Hacker123<br>
-The command completed successfully.
-</pre>
-   `; 
-
-   var netUserPass = `
-<pre>
-Type a password for the user:
-Retype the password to confirm:
-
-System error 5 has occurred.
-Access is denied.
-</pre>
-   `; 
-
-   var netUserEmptyPass = `
-<pre>
-System error 5 has occurred.
-
-Access is denied.
-</pre>
-   `; 
-
-var netUserNewPass = `
-<pre>
-Password for Hacker123 is: JNqey_4_eTrAyPMUKI2w7r1jRPwB3NIj4JBwIwg46o4
-
-command completed successfully.
-</pre>
-   `;    
-
-var userContent = `
-<pre>
-User name                    Hacker123
-Full Name
-Comment
-User's comment
-Country/region code          000 (System Default)
-Account active               Yes
-Account expires              Never
-
-Password last set            12/2/2019 9:57:40 PM
-Password expires             Never
-Password changeable          12/2/2019 9:57:40 PM
-Password required            No
-User may change password     Yes
-
-Workstations allowed         All
-Logon script
-User profile
-Home directory
-Last logon                   12/5/2019 8:06:17 PM
-
-Logon hours allowed          All
-
-Local Group Memberships      *Administrators
-Global Group memberships     *None
-The command completed successfully.
-</pre>
-   `;
-// All Powershell Commands started here
-                if (userInput === "") {
-                    // If the user input is empty, just add a new empty line
-                    newOutput.innerHTML = maindirectory;
-                } else if (userInput.toLowerCase() === "ipconfig") {
-                    // Implement the 'ipconfig' command
-                    newOutput.innerHTML = maindirectory + userInput + "<br>" + "IP Configuration for your system...";
-                    // You can add more details here if needed
-                }else if (userInput.toLowerCase() === "net") {
-                    // Implement the 'ipconfig' command
-                    newOutput.innerHTML = maindirectory + userInput + "<br>" + net;
-                    // You can add more details here if needed
-                }
-                else if (userInput.toLowerCase() === "dir") {
-                    // Implement the 'ipconfig' command
-                    newOutput.innerHTML = maindirectory + userInput + "<br>" + dir;
-                    // You can add more details here if needed
-                }
-                else if (userInput.toLowerCase() === "attrib") {
-                    // Implement the 'ipconfig' command
-                    newOutput.innerHTML = maindirectory + userInput + "<br>" +attrib;
-                    // You can add more details here if needed
-                }
-                else if (userInput.toLowerCase() === "attrib +s +r +h soft.rar") {
-                    // Implement the 'ipconfig' command
-                    newOutput.innerHTML = maindirectory + userInput + "<br>";
-                    document.querySelector('.rar').style.display = 'none';
-                     document.querySelector('.wd').style.display = 'none';
-                    
-                    // You can add more details here if needed
-                }
-                else if (userInput.toLowerCase() === "attrib +r +s +h soft.rar") {
-                    // Implement the 'ipconfig' command
-                    newOutput.innerHTML = maindirectory + userInput + "<br>";
-                    document.querySelector('.rar').style.display = 'none';
-                     document.querySelector('.wd').style.display = 'none';
-                    
-                    // You can add more details here if needed
-                }    else if (userInput.toLowerCase() === "attrib +h +r +s soft.rar") {
-                    // Implement the 'ipconfig' command
-                    newOutput.innerHTML = maindirectory + userInput + "<br>";
-                    document.querySelector('.rar').style.display = 'none';
-                     document.querySelector('.wd').style.display = 'none';
-                    
-                    // You can add more details here if needed
-                }   else if (userInput.toLowerCase() === "attrib +r +h +s soft.rar") {
-                    // Implement the 'ipconfig' command
-                    newOutput.innerHTML = maindirectory + userInput + "<br>";
-                    document.querySelector('.rar').style.display = 'none';
-                     document.querySelector('.wd').style.display = 'none';
-                    
-                    // You can add more details here if needed
-                }
-                else if (userInput.toLowerCase() === "attrib +h +s +r soft.rar") {
-                    // Implement the 'ipconfig' command
-                    newOutput.innerHTML = maindirectory + userInput + "<br>";
-                    document.querySelector('.rar').style.display = 'none';
-                     document.querySelector('.wd').style.display = 'none';
-                    
-                    // You can add more details here if needed
-                } else if (userInput.toLowerCase() === "attrib +s +h +r soft.rar") {
-                    // Implement the 'ipconfig' command
-                    newOutput.innerHTML = maindirectory + userInput + "<br>";
-                    document.querySelector('.rar').style.display = 'none';
-                     document.querySelector('.wd').style.display = 'none';
-                    
-                    // You can add more details here if needed
-                }
-
-                else if (userInput.toLowerCase() === "attrib -s -r -h soft.rar") {
-                    // Implement the 'ipconfig' command
-                    newOutput.innerHTML = maindirectory + userInput + "<br>";
-                    document.querySelector('.rar').style.display = 'flex';
-                     document.querySelector('.wd').style.display = 'flex';
-                    
-                    // You can add more details here if needed
-                }
-                else if (userInput.toLowerCase() === "attrib -h -r -s soft.rar") {
-                    // Implement the 'ipconfig' command
-                    newOutput.innerHTML = maindirectory + userInput + "<br>";
-                    document.querySelector('.rar').style.display = 'flex';
-                     document.querySelector('.wd').style.display = 'flex';
-                    
-                    // You can add more details here if needed
-                }     else if (userInput.toLowerCase() === "attrib -r -h -s oft.rar") {
-                    // Implement the 'ipconfig' command
-                    newOutput.innerHTML = maindirectory + userInput + "<br>";
-                    document.querySelector('.rar').style.display = 'flex';
-                     document.querySelector('.wd').style.display = 'flex';
-                    
-                    // You can add more details here if needed
-                }    else if (userInput.toLowerCase() === "attrib -s -h -r soft.rar") {
-                    // Implement the 'ipconfig' command
-                    newOutput.innerHTML = maindirectory + userInput + "<br>";
-                    document.querySelector('.rar').style.display = 'flex';
-                     document.querySelector('.wd').style.display = 'flex';
-                    
-                    // You can add more details here if needed
-                }else if (userInput.toLowerCase() === "attrib -h -s -r soft.rar") {
-                    // Implement the 'ipconfig' command
-                    newOutput.innerHTML = maindirectory + userInput + "<br>";
-                    document.querySelector('.rar').style.display = 'flex';
-                     document.querySelector('.wd').style.display = 'flex';
-                    
-                    // You can add more details here if needed
-                } 
-                else if (userInput.toLowerCase() === "net user hacker123") {
-                    // Implement the 'ipconfig' command
-                    newOutput.innerHTML = maindirectory + userInput + "<br>" + userContent;
-                }else if (userInput.toLowerCase() === "net user hacker123 *") {
-                    // Implement the 'ipconfig' command
-                    newOutput.innerHTML = maindirectory + userInput + "<br>" + netUserPass;
-                }
-                else if (userInput.toLowerCase() === "net user hacker123 /random") {
-                    // Implement the 'ipconfig' command
-                    newOutput.innerHTML = maindirectory + userInput + "<br>" + netUserNewPass;
-                }
-                else if (userInput.toLowerCase() === "net user hacker123 \"\"") {
-                    // Implement the 'ipconfig' command
-                    newOutput.innerHTML = maindirectory + userInput + "<br>" + netUserEmptyPass;
-                }
-                else if (userInput.toLowerCase() === "net user") {
-                    // Implement the 'ipconfig' command
-                    newOutput.innerHTML = maindirectory + userInput + "<br>" + netUser;
-                    // You can add more details here if needed
-                } 
-                else if (userInput.toLowerCase() === "ls" || userInput.toLowerCase() === "dir") {
-                    // Implement 'ls' or 'dir' command (list files in a directory)
-                    // For simplicity, let's assume you're listing some example files
-                    const fileList = ["file1.txt", "file2.txt", "folder1", "folder2"];
-                    newOutput.innerHTML= maindirectory + userInput + "<br>" + fileList.join('\n');
-                } else {
-                    // Command not recognized
-                    //newOutput.textContent
-                    newOutput.innerHTML = maindirectory + userInput + "<br>" + userInput + " is not recognized as an internal or external command,<br>operable program or batch file.";
-                }
-
-                // Append the output to the new output container
-                newOutputContainer.appendChild(newOutput);
-                
-                // Append the new output container to the main output container
-                outputContainer.appendChild(newOutputContainer);
-
-                // Clear the input field
-                commandInput.value = '';
-                
-                // Automatically scroll to the bottom of the .draggable-cmd div
-                const draggableCmd = document.getElementById('draggable-cmd');
-                    draggableCmd.scrollTop = draggableCmd.scrollHeight;
-                                
-                // Move the input field to the bottom of the output
-                // outputContainer.appendChild(commandInput);
-                
-                // Autofocus on the input field for the next command
-                commandInput.focus();
-            }
-        }
-
-                // JavaScript code to show the context menu when the right mouse button is clicked
-                const contextMenu = document.getElementById('context-menu');
-
-                document.addEventListener('contextmenu', function (event) {
-                    event.preventDefault();
-                    contextMenu.style.display = 'block';
-                    contextMenu.style.left = (event.clientX + 'px');
-                    contextMenu.style.top = (event.clientY + 'px');
-                });
-
-                document.addEventListener('click', function () {
-                    contextMenu.style.display = 'none';
-                });
-
-
-
-
-
-
-
-
-
- /*This code here is for the loading  Gif image */   
-    window.addEventListener("load", function () {
-    const loader = document.querySelector(".loader");
-    loader.className += " hidden"; // class "loader hidden"
-
-});
-
-/*javascript Desktop Event*/
-
-/*Main notification*/
-function notify(type,message){
-  (()=>{
-    let n = document.createElement("div");
-    let id = Math.random().toString(36).substr(2,10);
-    n.setAttribute("id",id);
-    n.classList.add("notification",type);
-    n.innerText = message;
-    document.getElementById("notification-area").appendChild(n);
-    setTimeout(()=>{
-      var notifications = document.getElementById("notification-area").getElementsByClassName("notification");
-      for(let i=0;i<notifications.length;i++){
-        if(notifications[i].getAttribute("id") == id){
-          notifications[i].remove();
-          break;
-        }
-      }
-    },5000);
-  })();
-}
-
-/*notification templetes*/
-
-function notifySuccess(){
-  notify("success","This is demo success notification message");
-}
-function notifyError(){
-  notify("error","This is demo error notification message");
-}
-function notifyInfo(){
-  notify("info",'Your command is not recognized as an internal or external command at this level, Please check the message box to use the right command');
-}
-
-var id ;
-function allowdrop(ev){
-    ev.preventDefault();
-}
-
-function dragstart(ev){
-    id=ev.target.id;
-   // alert(" Col"+id);
-}
-
-function dragstart1(ev){
-    id=ev.target.id;
-   // alert(" Col"+id);
-}
-function drop(ev){
-  
-  ev.target.append(document.getElementById(id));
-}
-
-
-document.getElementById('winc').addEventListener('click', 
-    function(){
-        document.querySelector('.wina').style.display = 'flex';
- 
-        
-    });
-document.querySelector('.close').addEventListener('click',
-    function(){
-        document.querySelector('.wina').style.display = 'none';
-        
-       
-        
-    });
-document.querySelector('.close1').addEventListener('click',
-    function(){
-        document.querySelector('.level').style.display = 'none';
-        
-       
-        
-    });
-document.querySelector('.close2').addEventListener('click',
-    function(){
-        document.querySelector('.note').style.display = 'none';
-        
-       
-        
-    });
-document.querySelector('.lvl').addEventListener('click',
-    function(){
-        document.querySelector('.level').style.display = 'none';
-        
-       
-        
-    });
-document.querySelector('.ml').addEventListener('click',
-    function(){
-        document.querySelector('.note').style.display = 'flex';
-        document.querySelector('.note').style.position = 'absolute';
-        document.querySelector('.note').style.height = '60%';
-        document.querySelector('.cmd').style.height = '6%';
-     
-    });
-document.querySelector('.c3').addEventListener('click',
-    function(){
-        document.querySelector('.cmd').style.display = 'list-item';
-        document.querySelector('.cmd-input').focus();
-    });
-
-document.querySelector('.bt').addEventListener('click',
-    function(){
-        document.querySelector('.cmd').style.display = 'none';
-
-        
-    });
-// document.querySelector('.title').addEventListener('click',
-//     function(){
-//         document.querySelector('.cmd').style.height = '60%';
-//         document.querySelector('.note').style.height = '6%';
-        
-//     });
-document.querySelector('.note').addEventListener('click',
-    function(){
-        document.querySelector('.note').style.height = '60%';
-        document.querySelector('.cmd').style.height = '6%';
-        
-    });
-
-
-
-
-
-
-// CMD functionality
-
-document.getElementById('help').addEventListener('click', 
-    function(){
-        document.querySelector('.wina').style.display = 'flex';
-       
-        
-    });
-document.querySelector('.close').addEventListener('click',
-    function(){
-        document.querySelector('.wina').style.display = 'none';
-    
-       
-        
-    });
-</script>
-
-
-
-
-
-<div id="notification-area">
-</div>
-</body>
+    <div id="notification-area"></div>
+  </body>
 </html>
