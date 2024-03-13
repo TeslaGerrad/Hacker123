@@ -497,3 +497,7 @@ document.getElementById("help").addEventListener("click", function () {
 document.querySelector(".close").addEventListener("click", function () {
   document.querySelector(".wina").style.display = "none";
 });
+document.querySelector('.bt').addEventListener('click', function() {
+    document.querySelector('.cmd').style.display = 'none'; // Minimize the cmd prompt
+  });
+  
