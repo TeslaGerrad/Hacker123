@@ -1,148 +1,217 @@
-      /* Set HTML and Body to cover the entire screen */
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden; /* Hide scrollbars */
-            background-image: url("../img/startup3.png");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-color:white;
-        }	
-.op{
-    margin-top: 45px;
-    margin-left: 60px;
-    z-index: -10;
-}
-.c{
-    margin-left:40px;
-    margin-top: 50px;
-}
-        /* Add this CSS to your existing stylesheet or create a new one */
-        .cmd {
-            position: absolute;
-            top: 50%; /* Center the CMD section vertically */
-            left: 50%; /* Center the CMD section horizontally */
-            transform: translate(-50%, -50%); /* Centering trick */
-            /* Add other styling properties as needed */
-            /* ... */
-        }
-.title{
-    background-color:#333333;
-    width: 700px;
-    height: 30px;           
-}
-.bt{
-    background-color: #333333;
-    margin-left: 380px;
-    border-color: #333333;
-    border-left-color: #333333;
-    height: 2px;
-    
-}
-.bt:hover{
-    background-color: red;
-}
-input{
-    background:transparent;
-    color: green;
-    border:transparent; 
-    font-size: 13px;
-}
-span{
-    color:black ;
-    margin-left: 5px;
-    width: 50px;
-    font-style: all;
-}
-.m{
-    margin-top: 4px;
-   margin-left: 15px;
-}
-.B1{
-    background-color:black;
-    color: green;
-    top: 10;
-    right: 50px;
-    cursor: pointer;
-    position: absolute;
-    border-color: green;
-}
-.wina{
-    display:none;
-    
-    
+      html,
+      body {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+          overflow: hidden;
+          background-image: url("../img/startup3.png");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-color: white;
+      }
 
-}
-.win{
-    border-radius: 10px;
-    width: 97%;
-    height: 97%;
-    background-color:#231d1d;
-    position: absolute;
-    margin-top: 10px;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.winc{
-    width: 990px;
-    height:550px;
+      .op {
+          margin-top: 45px;
+          margin-left: 60px;
+          z-index: -10;
+      }
 
-   
+      .c {
+          margin-left: 40px;
+          margin-top: 50px;
+      }
 
-}
-.close{
-    position: absolute;
-    top: 5px;
-    right: 20px;
-    font-size: 42px;
-    transform: rotate(45deg);
-    cursor: pointer;
-    color: white;
-}
-.close:hover{
-     color:red;
-}
+      .cmd {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          
+      }
 
-.home{
-   border-radius: 10px;
-    width: 90%;
-    height: 580px;
-    margin-top: 10px;
-    margin-left: 70px; 
-    z-index: -1;
-    overflow-x: auto;
-    overflow-y:scroll;
-}
+      .CmdTitle {
+          margin-right: auto;
+      }
 
-.cmd-input{
-    border: none;
-    outline: none;
-     background-color:black;
-     color:white;
-}
+      .title {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background-color: #333333;
+          width: 700px;
+          height: 30px;
+          padding-right: 10px;
+      }
 
-.cmd{
-    background-color:black;
-     color:white;
-     padding-left:10px;
-     height: 400px;
-}
+      .bt {
+          background-color: #333333;
+          border: none;
+          height: 4px;
+          width: 20px;
+      }
 
-.user-input{
-      color:white;}
+      .bt:hover {
+          background-color: red;
+      }
+
+      input {
+          background: transparent;
+          color: green;
+          border: transparent;
+          font-size: 13px;
+      }
+
+      span {
+          color: black;
+          margin-left: 5px;
+          width: 50px;
+          font-style: all;
+      }
+
+      .m {
+          margin-top: 4px;
+          margin-left: 15px;
+      }
+
+      .B1 {
+          background-color: black;
+          color: green;
+          top: 10;
+          right: 50px;
+          cursor: pointer;
+          position: absolute;
+          border-color: green;
+      }
+
+      .wina {
+          display: none;
 
 
-        /* Style for the context menu */
-        .context-menu {
-            position: absolute;
-            display: none;
-            background-color: #333;
-            color: white;
-            padding: 5px;
-            border-radius: 5px;
-            z-index: 9999;
-            text-decoration:none;
-        }
+
+      }
+
+      .win {
+          border-radius: 10px;
+          width: 97%;
+          height: 97%;
+          background-color: #231d1d;
+          position: absolute;
+          margin-top: 10px;
+          top: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+
+      .winc {
+          width: 990px;
+          height: 550px;
+
+
+
+      }
+
+      .close {
+          position: absolute;
+          top: 5px;
+          right: 20px;
+          font-size: 42px;
+          transform: rotate(45deg);
+          cursor: pointer;
+          color: white;
+      }
+
+      .close:hover {
+          color: red;
+      }
+
+      .home {
+          border-radius: 10px;
+          width: 90%;
+          height: 580px;
+          margin-top: 10px;
+          margin-left: 70px;
+          z-index: -1;
+          overflow-x: auto;
+          overflow-y: scroll;
+      }
+
+      .cmd-input {
+          border: none;
+          outline: none;
+          background-color: black;
+          color: white;
+      }
+
+      .cmd {
+          background-color: black;
+          color: white;
+          padding-left: 10px;
+          height: 400px;
+      }
+
+      .user-input {
+          color: white;
+      }
+
+
+      /* Style for the context menu */
+      .context-menu {
+          position: absolute;
+          display: none;
+          background-color: #333;
+          color: white;
+          padding: 5px;
+          border-radius: 5px;
+          z-index: 9999;
+          text-decoration: none;
+      }
+
+      *{
+        color:green;
+}
+       .command-output {
+           color:green;
+           font-family: monospace;
+       }
+       .title{
+           position: sticky;
+             top: 0;
+           background-color: #454141;
+           padding: 10px;
+           z-index: 2; /* Optional: Set a higher z-index to make it appear above other content */
+           }
+
+       /* Style the input container to be to the right of the prompt */
+       #cmd-input-container {
+           color:green;
+           /* display: flex; */
+           align-items: center;
+           /* background-color: red; */
+           margin-left: -5px;
+       }
+       #draggable-cmd{
+        height: 400px; /* Set a fixed height for the scrollable area */
+        overflow: auto; /* Enable scrolling for this div */
+       }
+       /* Style the prompt */
+       
+       .user-input {
+           flex: 0 0 auto; /* Prevent the prompt from growing */
+           color:green;
+           font-size: 13px;
+           font-family:  monospace;
+       }
+       .CmdTitle{
+           font-family:  'Courier New', Courier, monospace;
+           color: #fff;
+           font-size: 14px;
+
+
+       }
+
+       /* Style the input field */
+       .cmd-input {
+       color:green;
+           flex-grow: 1; /* Allow the input field to expand */
+       }
