@@ -45,11 +45,13 @@
 
       .bt {
           background-color: #333333;
-          border: none;
+        margin-left: 10px;
+        border-color: #333333;
+        border-left-color: #333333;
           height: 4px;
           width: 20px;
       }
-
+     
       .bt:hover {
           background-color: red;
       }
@@ -185,9 +187,7 @@
        /* Style the input container to be to the right of the prompt */
        #cmd-input-container {
            color:green;
-           /* display: flex; */
            align-items: center;
-           /* background-color: red; */
            margin-left: -5px;
        }
        #draggable-cmd{
