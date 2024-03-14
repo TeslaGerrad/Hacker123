@@ -5,58 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>123.0.0.1</title>
     <link rel="stylesheet" href="cmd.css">
-    <style>
-
-       *{
-         color:green;
-}
-        /* Add any additional CSS styles here if needed */
-        .command-output {
-            color:green;
-            font-family: monospace;
-        }
-        .title{
-            position: sticky;
-              top: 0;
-            background-color: #454141;
-            padding: 10px;
-            z-index: 2; /* Optional: Set a higher z-index to make it appear above other content */
-            }
-
-        /* Style the input container to be to the right of the prompt */
-        #cmd-input-container {
-            color:green;
-            /* display: flex; */
-            align-items: center;
-            /* background-color: red; */
-            margin-left: -5px;
-        }
-        #draggable-cmd{
-         height: 400px; /* Set a fixed height for the scrollable area */
-         overflow: auto; /* Enable scrolling for this div */
-        }
-        /* Style the prompt */
-        
-        .user-input {
-            flex: 0 0 auto; /* Prevent the prompt from growing */
-            color:green;
-            font-size: 13px;
-            font-family:  monospace;
-        }
-        .CmdTitle{
-            font-family:  'Courier New', Courier, monospace;
-            color: #fff;
-            font-size: 14px;
-
-
-        }
-
-        /* Style the input field */
-        .cmd-input {
-        color:green;
-            flex-grow: 1; /* Allow the input field to expand */
-        }
-    </style>
+    
 </head>
 <body>
     <div class="wina">
@@ -87,19 +36,30 @@
 
         <!-- // Hacker123 PowerShell Div start here -->
         <div class="cmd" id="draggable-cmd">
-            <div class="title">
-                <img src="../img/cmdlg.png" class="m" width="25" height="20" >
-                <span class="CmdTitle">Hacker123 PowerShell</span>
-                <a href="../h5.html"><button class="bt"></button></a>
+            <div class="title" id="cmd-header">
+              <img src="../img/cmdlg.png" class="m" width="25" height="20" />
+              <span class="CmdTitle">Hacker123 PowerShell</span>
+              <button class="bt" onclick="document.querySelector('.cmd').style.display = 'none'"></button>
+
             </div>
-            <p>Hacker123 PowerShell [Version 0.1.2]<br>
-             Open Source Project. (c) 2023 Biztecitsolution.com</p>
-            <div id="output-container"></div> <!-- Container to display command output -->
+            <p>
+              Hacker123 PowerShell [Version 0.1.2] Open Source Project. (c) 2024
+              Biztecitsolution.com
+            </p>
+            <div id="output-container"></div>
+            <!-- Container to display command output -->
             <div id="cmd-input-container">
-                <span class="user-input">C:\Windows\System32> </span>
-                <input class="cmd-input" type="text" size="75" autofocus id="user-command" onkeydown="executeCommand(event)">
+              <span class="user-input">C:\Windows\System32> </span>
+              <input
+                class="cmd-input"
+                type="text"
+                size="75"
+                autofocus
+                id="user-command"
+                onkeydown="executeCommand(event)"
+              />
             </div>
-        </div>
+          </div>
         <!-- Hacker123 PowerShell Div ends here -->
 
         <!-- Context menu for the navigation bar -->
@@ -117,6 +77,6 @@
             </ul>
         </div>
     </div>
-   <script src="../levels/level1.js"></script>
+   <script src="cmd.js"></script>
 </body>
 </html>
