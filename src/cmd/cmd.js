@@ -475,9 +475,9 @@ document.querySelector(".c3").addEventListener("click", function () {
   document.querySelector(".cmd-input").focus();
 });
 
-document.querySelector(".bt").addEventListener("click", function () {
-  document.querySelector(".cmd").style.display = "none";
-});
+// document.querySelector(".bt").addEventListener("click", function () {
+//   document.querySelector(".cmd").style.display = "none";
+// });
 // document.querySelector('.title').addEventListener('click',
 //     function(){
 //         document.querySelector('.cmd').style.height = '60%';
